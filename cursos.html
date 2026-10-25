@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="cmeta.title">FISIO 2.0 · Curso de ejercicio terapéutico + terapia manual | Sebastián Rengifo</title>
+  <meta name="description" data-i18n-content="cmeta.desc" content="FISIO 2.0: formación para fisioterapeutas y estudiantes de último semestre. Módulo virtual + 16 horas presenciales. Más de 150 fisioterapeutas formados.">
+  <meta name="theme-color" content="#0d6e8f">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="Sebastián Rengifo Fisioterapia">
+      <span class="brand-mark">SR</span>
+      <span class="brand-text">Sebastián Rengifo <small data-i18n="brand.sub">Fisioterapia · Medellín</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="index.html#servicios" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#metodo" data-i18n="cnav.method">El método</a></li>
+        <li><a href="#modulos" data-i18n="cnav.modules">Módulos</a></li>
+        <li><a href="#galeria" data-i18n="cnav.gallery">Galería</a></li>
+        <li><a href="#inscripcion" class="nav-cta" data-i18n="cnav.enroll">Inscríbete</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" class="active">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="btn btn-whatsapp btn-sm" data-wa="Hola Sebastián, quiero información sobre el curso FISIO 2.0." data-i18n-wa="wa.course" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        <span data-i18n="cnav.info">Más información</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="course-hero" id="inicio">
+  <img class="bg" src="assets/img/cursos/hero.jpg" alt="Sebastián Rengifo enseñando ejercicio terapéutico" fetchpriority="high">
+  <div class="container">
+    <div class="reveal-left" style="max-width:680px">
+      <span class="eyebrow" data-i18n="chero.eyebrow">Formación para fisioterapeutas</span>
+      <h1 data-i18n-html="chero.title">FISIO <span>2.0</span><br>Ejercicio terapéutico + terapia manual: un solo método, resultados superiores.</h1>
+      <p class="lead" data-i18n="chero.lead">Metodología para fisioterapeutas y estudiantes de último semestre. El razonamiento clínico y la educación del paciente son nuestros pilares.</p>
+      <div class="pill-row">
+        <span class="pill" data-i18n="chero.pill1">+150 fisioterapeutas formados</span>
+        <span class="pill" data-i18n="chero.pill2">Módulo virtual + 16 h presenciales</span>
+        <span class="pill" data-i18n="chero.pill3">Certificado de participación</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#inscripcion" data-i18n="chero.cta1">Reservar mi cupo</a>
+        <a class="btn btn-ghost-light" href="#modulos" data-i18n="chero.cta2">Ver el programa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="container">
+  <div class="stats reveal" data-stagger>
+    <div class="stat" style="--i:0"><strong><span class="counter" data-target="150" data-prefix="+"></span></strong><span data-i18n="cstats.physios">fisioterapeutas formados</span></div>
+    <div class="stat" style="--i:1"><strong><span class="counter" data-target="16"></span> h</strong><span data-i18n="cstats.hours">de práctica presencial</span></div>
+    <div class="stat" style="--i:2"><strong><span class="counter" data-target="2"></span></strong><span data-i18n="cstats.days">días de formación intensiva</span></div>
+    <div class="stat" style="--i:3"><strong><span class="counter" data-target="5" data-prefix="+"></span></strong><span data-i18n="cstats.years">años de resultados en consulta</span></div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="section" id="metodo">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="method.eyebrow">El método</span>
+      <h2 data-i18n="method.title">No es otra formación de una técnica aislada</h2>
+      <p class="muted" data-i18n="method.lead">FISIO 2.0 te da toda una estructura de abordaje: desde la valoración y el tratamiento hasta las pautas de reintegro del paciente a su actividad.</p>
+    </div>
+    <div class="grid grid-4 reveal" data-stagger>
+      <div class="feature" style="--i:0">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H3v10h6zM15 3H9v18h6zM21 7h-6v14h6z"/></svg></div>
+        <h3 data-i18n="method.f1.t">Protocolos personalizados</h3>
+        <p data-i18n="method.f1.d">Creamos protocolos integrados de ejercicio y terapia manual para diferentes patologías.</p>
+      </div>
+      <div class="feature" style="--i:1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3 data-i18n="method.f2.t">Mejores resultados</h3>
+        <p data-i18n="method.f2.d">Mejora tus resultados clínicos al aplicar lo que aprenderás; eso te permitirá abordar con mayor seguridad.</p>
+      </div>
+      <div class="feature" style="--i:2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
+        <h3 data-i18n="method.f3.t">Recuperación más rápida</h3>
+        <p data-i18n="method.f3.d">Acorta los tiempos de recuperación de tus pacientes: mejora tu valor como profesional y el cobro de tu consulta.</p>
+      </div>
+      <div class="feature" style="--i:3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3 data-i18n="method.f4.t">Mirada integral</h3>
+        <p data-i18n="method.f4.d">Valoración funcional, educación y tratamiento integral de ejercicio y terapia manual: resultados más sólidos y tratamientos a la medida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCENTE -->
+<section class="section section-soft" id="docente">
+  <div class="container about-grid">
+    <div class="about-photo reveal-left">
+      <img src="assets/img/cursos/docente.jpg" alt="Sebastián Rengifo guiando una práctica en camilla" loading="lazy">
+      <div class="about-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="m8.2 13.9-1.2 8.1 5-3 5 3-1.2-8.1"/></svg><span data-i18n="teacher.badge">+150 fisios formados</span></div>
+    </div>
+    <div class="reveal-right">
+      <span class="eyebrow" data-i18n="teacher.eyebrow">Conoce a tu docente</span>
+      <h2>Sebastián Rengifo Mora</h2>
+      <p class="lead muted" data-i18n="teacher.lead">Fisioterapeuta con énfasis deportivo, con más de 5 años de experiencia obteniendo resultados en su propia consulta. Más de 150 fisioterapeutas ya se han formado con él y expresan gran satisfacción.</p>
+      <div class="testi-quote reveal">
+        <p data-i18n="teacher.quote">“FISIO 2.0 es evidencia científica de calidad que aplico día a día en mi consulta.”</p>
+        <strong>— Sebastián Rengifo Mora</strong>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#inscripcion" data-i18n="teacher.cta">Quiero formarme con Sebastián</a>
+        <a class="btn btn-outline" href="index.html#sobre-mi" data-i18n="teacher.cta2">Ver consulta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<section class="section" id="modulos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="mod.eyebrow">Programa</span>
+      <h2 data-i18n="mod.title">Dos módulos: teoría a tu ritmo y práctica intensiva</h2>
+    </div>
+
+    <article class="module reveal">
+      <div class="module-media"><img src="assets/img/cursos/g5.jpg" alt="Participantes del curso FISIO 2.0" loading="lazy"></div>
+      <div class="module-body">
+        <span class="module-num">1</span>
+        <span class="eyebrow" data-i18n="mod.m1.eyebrow">Módulo virtual · clases pregrabadas</span>
+        <h3 data-i18n="mod.m1.title">Introducción a FISIO 2.0 y bases de dosificación del ejercicio terapéutico</h3>
+        <p class="muted" data-i18n="mod.m1.lead">Contenido virtual sobre la teoría y las bases de lo que verás en la parte presencial.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m1.l1">Irradiación muscular y contracción-relajación.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m1.l2">Cargas isométricas, excéntricas y concéntricas según los tiempos biológicos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m1.l3">Fundamentos de la terapia manual y manejo de la velocidad.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m1.l4">Repaso anatómico de columna cervical, dorsal y lumbar con modelo anatómico 3D.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m1.l5">Clases completas de ejercicio terapéutico y terapia manual.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m1.l6">Bonus: caso clínico de tendinopatía rotuliana en jugador de baloncesto.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="module reverse reveal">
+      <div class="module-media"><img src="assets/img/cursos/practica.jpg" alt="Práctica guiada en camilla con casos reales" loading="lazy"></div>
+      <div class="module-body">
+        <span class="module-num">2</span>
+        <span class="eyebrow" data-i18n="mod.m2.eyebrow">Encuentro presencial · 16 horas</span>
+        <h3 data-i18n="mod.m2.title">Dos días de formación intensiva</h3>
+        <p class="muted" data-i18n="mod.m2.lead">Práctica guiada en camilla con casos reales para que apliques el método desde el primer día en tu consulta.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m2.l1"><strong>Casos clínicos deportivos:</strong> análisis completo, rehabilitación por fases, test ortopédicos y criterios de alta.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m2.l2"><strong>Aplicación inmediata:</strong> protocolos basados en evidencia para mejores resultados en tus pacientes.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mod.m2.l3"><strong>Práctica guiada en camilla</strong> con corrección directa del docente.</span></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- INCLUYE -->
+<section class="section section-soft" id="incluye">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="inc.eyebrow">Todo lo que necesitas</span>
+      <h2 data-i18n="inc.title">Para aprender, conectar y transformar tu práctica</h2>
+    </div>
+    <div class="grid grid-3 reveal" data-stagger>
+      <div class="feature" style="--i:0"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M22 7H2v5h20zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><h3 data-i18n="inc.i1.t">Obsequios exclusivos</h3><p data-i18n="inc.i1.d">Detalles especiales para los participantes.</p></div>
+      <div class="feature" style="--i:1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="m8.2 13.9-1.2 8.1 5-3 5 3-1.2-8.1"/></svg></div><h3 data-i18n="inc.i2.t">Certificado de participación</h3><p data-i18n="inc.i2.d">Respaldo de tu formación en el método FISIO 2.0.</p></div>
+      <div class="feature" style="--i:2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3 data-i18n="inc.i3.t">Acceso a grupo privado</h3><p data-i18n="inc.i3.d">Comunidad para resolver dudas y compartir casos.</p></div>
+      <div class="feature" style="--i:3"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4zM6 1v3M10 1v3M14 1v3"/></svg></div><h3 data-i18n="inc.i4.t">Refrigerio incluido</h3><p data-i18n="inc.i4.d">Durante las jornadas presenciales.</p></div>
+      <div class="feature" style="--i:4"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M10 8l5 2.5-5 2.5z"/></svg></div><h3 data-i18n="inc.i5.t">Contenido multimedia</h3><p data-i18n="inc.i5.d">Para repasar a tu ritmo después del curso.</p></div>
+      <div class="feature" style="--i:5"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H3v10h6zM15 3H9v18h6zM21 7h-6v14h6z"/></svg></div><h3 data-i18n="inc.i6.t">Tests de anatomía 3D</h3><p data-i18n="inc.i6.d">Evaluaciones con modelo anatómico 3D.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section" id="galeria">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="gal.eyebrow">Galería</span>
+      <h2 data-i18n="gal.title">Así se viven nuestras formaciones</h2>
+    </div>
+    <div class="gallery reveal" data-stagger>
+      <figure style="--i:0"><img src="assets/img/cursos/grupo2.jpg" alt="Grupo de fisioterapeutas certificados" loading="lazy"></figure>
+      <figure style="--i:1"><img src="assets/img/cursos/g1.jpg" alt="Práctica de terapia manual" loading="lazy"></figure>
+      <figure style="--i:2"><img src="assets/img/cursos/g2.jpg" alt="Práctica guiada" loading="lazy"></figure>
+      <figure style="--i:3"><img src="assets/img/cursos/g3.jpg" alt="Evaluación de rodilla" loading="lazy"></figure>
+      <figure style="--i:4"><img src="assets/img/cursos/g4.jpg" alt="Técnica cervical" loading="lazy"></figure>
+      <figure style="--i:5"><img src="assets/img/cursos/g6.jpg" alt="Sebastián corrigiendo una técnica" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPCIÓN -->
+<section class="section section-dark" id="inscripcion">
+  <div class="container enroll">
+    <div class="reveal-left">
+      <span class="eyebrow" data-i18n="enr.eyebrow">Inscríbete hoy</span>
+      <h2 data-i18n="enr.title">Transforma la forma en que tratas a tus pacientes</h2>
+      <p class="muted" data-i18n="enr.lead">Cupos limitados para garantizar práctica real y acompañamiento personalizado. Escríbenos y te contamos fechas, inversión y formas de pago.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" data-wa="Hola Sebastián, quiero reservar mi cupo en el curso FISIO 2.0." data-i18n-wa="wa.enroll" target="_blank" rel="noopener" data-i18n="enr.cta">Reservar ahora</a>
+        <a class="btn btn-ghost-light" href="index.html#contacto" data-i18n="enr.cta2">Otras formas de contacto</a>
+      </div>
+    </div>
+    <div class="enroll-card reveal-right">
+      <dl>
+        <div><dt data-i18n="enr.dates">Fechas</dt><dd data-cfg-lang="course.dates">Próximas fechas por confirmar</dd></div>
+        <div><dt data-i18n="enr.city">Ciudad</dt><dd data-cfg-lang="course.city">Medellín</dd></div>
+        <div><dt data-i18n="enr.format">Formato</dt><dd data-i18n="enr.formatV">Virtual + 2 días presenciales</dd></div>
+        <div><dt data-i18n="enr.seats">Cupos</dt><dd data-i18n="enr.seatsV">Limitados</dd></div>
+      </dl>
+      <p style="margin:0;font-size:.9rem;color:rgba(255,255,255,.75)" data-i18n="enr.note">Dirigido a fisioterapeutas y estudiantes de último semestre.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand"><span class="brand-mark">SR</span><span class="brand-text">Sebastián Rengifo <small data-i18n="brand.sub">Fisioterapia · Medellín</small></span></a>
+        <p style="margin-top:16px;max-width:360px" data-i18n="footer.tagline">Fisioterapia basada en evidencia: valoración, ejercicio terapéutico y terapia manual para que vuelvas a moverte sin dolor.</p>
+        <div class="social">
+          <a id="footerInstagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a data-wa="Hola Sebastián, quiero información sobre el curso FISIO 2.0." data-i18n-wa="wa.course" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+          <a id="footerEmail" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="footer.course">FISIO 2.0</h4>
+        <ul>
+          <li><a href="#metodo" data-i18n="cnav.method">El método</a></li>
+          <li><a href="#docente" data-i18n="teacher.eyebrow">Conoce a tu docente</a></li>
+          <li><a href="#modulos" data-i18n="cnav.modules">Módulos</a></li>
+          <li><a href="#inscripcion" data-i18n="cnav.enroll">Inscríbete</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.links">Enlaces</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="index.html#servicios" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="index.html#recuperacion" data-i18n="footer.recovery">Recuperación muscular</a></li>
+          <li><a href="index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Sebastián Rengifo Mora · <span data-i18n="footer.rights">Todos los derechos reservados</span></span>
+      <span data-i18n="footer.city">Medellín, Colombia</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="Hola Sebastián, quiero información sobre el curso FISIO 2.0." data-i18n-wa="wa.course" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
