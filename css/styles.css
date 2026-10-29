@@ -583,6 +583,8 @@ p { margin: 0 0 1em; }
 .f2-submit[disabled] { opacity: .6; cursor: wait; }
 .f2-form-ok { background: rgba(25,179,156,.15); border: 2px solid var(--accent); border-radius: 16px; padding: 18px 22px; margin-bottom: 24px; display: grid; gap: 4px; color: #fff; }
 .f2-form-ok strong { font-family: var(--font-head); font-size: 1.15rem; color: #8fe3d4; }
+.f2-form-fallback { background: rgba(242,107,33,.14); border-color: var(--f2-orange); }
+.f2-form-fallback strong { color: #ffb48a; }
 .f2-pay { background: #fff; color: var(--ink); border-radius: 20px; padding: clamp(20px, 3vw, 30px); box-shadow: 0 24px 60px rgba(0,0,0,.4); position: sticky; top: calc(var(--nav-h) + 20px); }
 .f2-pay h3 { font-family: var(--font-head); font-size: 1.3rem; margin: 0 0 6px; color: var(--primary-deep); }
 .f2-pay > p { margin: 0 0 16px; color: var(--muted); font-size: .95rem; }

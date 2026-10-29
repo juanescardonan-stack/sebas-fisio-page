@@ -52,26 +52,87 @@
   }
   if (ciudad) { ciudad.addEventListener("change", toggleOtra); toggleOtra(); }
 
-  // Validación antes de enviar (el envío real lo hace el navegador vía FormSubmit)
-  form.addEventListener("submit", e => {
+  /* ---- Envío ---- */
+  const t = k => { const d = (window.I18N && window.I18N.en) || {}; return lang() === "en" && d[k] ? d[k] : null; };
+  const endpoint = CFG.formEndpoint || form.action;
+  const esAppsScript = /script\.google\.com/.test(endpoint);
+
+  // Recoge los campos como objeto {etiqueta: valor} (sin los técnicos "_xxx")
+  function datos() {
+    const out = {};
+    new FormData(form).forEach((v, k) => { if (k[0] !== "_" && !(v instanceof File)) out[k] = String(v).trim(); });
+    return out;
+  }
+  function leerArchivoBase64(file) {
+    return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(",")[1] || ""); r.onerror = rej; r.readAsDataURL(file); });
+  }
+  function textoResumen(d) {
+    const l = lang();
+    const lineas = [l === "en" ? "Hi Sebastián, I'd like to sign up for the FISIO 2.0 training." : "Hola Sebastián, quiero inscribirme en la formación FISIO 2.0."];
+    Object.keys(d).forEach(k => { if (d[k]) lineas.push(k + ": " + d[k]); });
+    return lineas.join("\n");
+  }
+  function mostrarRespaldo(d) {
+    const fb = $("#formFallback"); if (!fb) return;
+    const msg = textoResumen(d);
+    const wa = $("#fallbackWa"); if (wa) wa.href = "https://wa.me/" + (CFG.whatsapp || "") + "?text=" + encodeURIComponent(msg);
+    const mail = $("#fallbackMail"); if (mail) mail.href = "mailto:" + (CFG.formEmail || "") + "?subject=" + encodeURIComponent("Inscripción Formación FISIO 2.0") + "&body=" + encodeURIComponent(msg);
+    fb.hidden = false;
+    fb.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  function mostrarExito() {
+    const ok = $("#formOk"); if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
+    form.reset(); form.classList.remove("was-validated"); toggleOtra();
+  }
+
+  async function enviar(d, file) {
+    if (esAppsScript) {
+      // Apps Script: JSON como texto plano (sin preflight CORS); el archivo va en base64
+      const payload = Object.assign({}, d);
+      if (file) { payload.archivoBase64 = await leerArchivoBase64(file); payload.archivoNombre = file.name; payload.archivoTipo = file.type; }
+      const res = await fetch(endpoint, { method: "POST", body: JSON.stringify(payload) });
+      const j = await res.json();
+      if (!j || !j.ok) throw new Error(j && j.error || "Apps Script error");
+    } else {
+      // FormSubmit (endpoint /ajax/): se envía el formulario completo, con adjunto
+      const fd = new FormData(form); fd.delete("_next");
+      const res = await fetch(endpoint, { method: "POST", body: fd, headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const j = await res.json().catch(() => ({}));
+      if (j && j.success === "false") throw new Error(j.message || "FormSubmit error");
+    }
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
     form.classList.add("was-validated");
-    const err = $("#formError");
+    const err = $("#formError"), btn = $("#formSubmit"), fb = $("#formFallback");
+    if (fb) fb.hidden = true;
     if (!form.checkValidity()) {
-      e.preventDefault();
-      if (err) err.hidden = false;
+      if (err) { err.hidden = false; err.textContent = t("f2.form.error") || err.dataset.es || err.textContent; }
       const first = form.querySelector(":invalid"); if (first) first.focus();
       return;
     }
-    const file = $("#fComprobante");
-    if (file && file.files && file.files[0] && file.files[0].size > 10 * 1024 * 1024) {
-      e.preventDefault();
-      if (err) { err.hidden = false; err.textContent = lang() === "en" ? "The receipt must be smaller than 10 MB." : "El comprobante debe pesar menos de 10 MB."; }
-      file.focus();
-      return;
+    const fileInput = $("#fComprobante");
+    const file = fileInput && fileInput.files && fileInput.files[0];
+    if (file && file.size > 10 * 1024 * 1024) {
+      if (err) { err.hidden = false; err.textContent = t("f2.form.fileTooBig") || "El comprobante debe pesar menos de 10 MB."; }
+      fileInput.focus(); return;
     }
     if (err) err.hidden = true;
-    const btn = $("#formSubmit");
-    if (btn) { btn.disabled = true; btn.textContent = lang() === "en" ? "Sending…" : "Enviando…"; }
+    const replyTo = $("#formReplyTo"), correo = $("#fCorreo"); if (replyTo && correo) replyTo.value = correo.value;
+    const d = datos();
+    const txt = btn ? btn.textContent : "";
+    if (btn) { btn.disabled = true; btn.textContent = t("f2.form.sending") || "Enviando…"; }
+    try {
+      await enviar(d, file);
+      mostrarExito();
+    } catch (ex) {
+      console.warn("Formulario: no se pudo enviar por el servicio configurado.", ex);
+      mostrarRespaldo(d);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = txt; }
+    }
   });
   }
 

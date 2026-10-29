@@ -12,7 +12,8 @@ Sitio estático (HTML + CSS + JavaScript puro, sin dependencias ni proceso de bu
 ├── js/i18n.js          Traducciones al inglés (el español vive en el HTML)
 ├── js/main.js          Animaciones, menú, carrusel, traducción, formulario → WhatsApp
 ├── js/columna3d.js     Columna vertebral 3D de fondo en el hero (Three.js desde CDN; sin WebGL simplemente no aparece)
-├── js/cursos.js        Página de formación: tarjetas de próximas fechas (desde config.js) y formulario de reserva
+├── js/cursos.js        Página de formación: tarjetas de próximas fechas (desde config.js) y envío del formulario
+├── backend/formulario-apps-script.gs   Receptor del formulario para publicar en Google Apps Script (opcional, recomendado)
 └── assets/
     ├── img/            Fotos optimizadas para web
     ├── video/          Video de recuperación muscular (comprimido, 5 MB) + poster
@@ -58,13 +59,19 @@ Para usar un dominio propio después, agrega el dominio en **Settings → Pages 
 
 ## 3. Formulario de reserva (cursos.html) → correo
 
-El formulario envía los datos a **destinyrehabilitacion@gmail.com** usando el servicio gratuito [FormSubmit](https://formsubmit.co) (no requiere servidor ni cuenta).
+El formulario envía los datos (y el comprobante adjunto) a **destinyrehabilitacion@gmail.com**. El servicio que los recibe se elige en `js/config.js` (`formEndpoint`). Si ese servicio no responde, el visitante **no ve un error**: aparece un aviso con botones para mandar sus datos, ya redactados, por WhatsApp o por correo.
 
-**Activación (solo la primera vez):** tras el primer envío real desde el sitio publicado, FormSubmit manda un correo a destinyrehabilitacion@gmail.com con un botón **"Activate form"**. Hay que hacer clic ahí una vez; desde entonces cada envío llega como correo con una tabla de los datos y el comprobante adjunto. Si no llega, revisar la carpeta de spam.
+### Opción recomendada: Google Apps Script (propio, gratis y estable)
+Corre en la cuenta de Google de destino, sin depender de terceros. Una sola vez:
+1. Abre `backend/formulario-apps-script.gs` y sigue las instrucciones del encabezado (pegar en https://script.google.com → Implementar como aplicación web → "Ejecutar como: Yo", "Acceso: Cualquier usuario").
+2. Pega la URL que termina en `/exec` en `js/config.js` → `formEndpoint`.
+3. Listo: cada envío llega como correo con tabla de datos y el comprobante adjunto; "Responder" contesta directamente al inscrito.
 
-- Para cambiar el destinatario: edita el `action` del `<form id="enrollForm">` en `cursos.html` (`https://formsubmit.co/OTRO@correo.com`) y vuelve a activar.
-- El asunto del correo se define en el campo oculto `_subject`.
-- Tras enviar, el visitante vuelve a `cursos.html?enviado=1` y ve el mensaje de confirmación.
+### Opción por defecto: FormSubmit (sin cuenta)
+`formEndpoint: "https://formsubmit.co/ajax/destinyrehabilitacion@gmail.com"`. Tras el primer envío real desde el sitio publicado, FormSubmit manda un correo con el botón **"Activate form"**; hay que hacer clic una vez (revisar spam). Es un servicio gratuito de terceros y a veces se cae (error 521 de Cloudflare): mientras esté caído, los visitantes verán el respaldo por WhatsApp/correo.
+
+Otros datos del formulario:
+- Destinatario para el respaldo por correo: `formEmail` en `js/config.js`.
 - El QR de pago es `assets/img/cursos/qr-pago.jpg` (Bre-B / Nequi, llave 315 515 9416). Si cambia la llave, reemplaza la imagen y el dato en la tarjeta de pago de `cursos.html`.
 - El texto de términos/cancelaciones está en `cursos.html` (bloque `.f2-terms`) y su traducción en `js/i18n.js` (`f2.form.terms1/2`).
 

@@ -26,6 +26,16 @@ window.SITE_CONFIG = {
   // Horario de atención
   schedule: { es: "Lunes a sábado · 7:00 a.m. – 7:00 p.m.", en: "Monday to Saturday · 7:00 a.m. – 7:00 p.m." }, // <-- CAMBIAR
 
+  // Formulario de reserva de la página de cursos → a qué correo y por qué servicio se envía.
+  //  - formEmail: destinatario (también se usa para el respaldo por correo si el servicio falla).
+  //  - formEndpoint: URL que recibe el formulario. Opciones:
+  //      a) FormSubmit (gratis, sin cuenta; requiere activar una vez desde el correo que llega):
+  //         "https://formsubmit.co/ajax/destinyrehabilitacion@gmail.com"
+  //      b) Google Apps Script propio (recomendado, más estable; ver README sección 3):
+  //         "https://script.google.com/macros/s/XXXXXXXX/exec"
+  formEmail: "destinyrehabilitacion@gmail.com",
+  formEndpoint: "https://script.google.com/macros/s/AKfycbz6Bdg6zGUAn2rGbNjY0PL40dal1BWqtnn3t9-BmilNNoDzMPZ2MbexjE3xEwwaH2spVw/exec",  // <-- CAMBIAR por la URL de Apps Script cuando la tengas
+
   // Próxima fecha del curso FISIO 2.0
   course: {
     dates: { es: "Próximas fechas por confirmar", en: "Next dates to be confirmed" }, // <-- CAMBIAR

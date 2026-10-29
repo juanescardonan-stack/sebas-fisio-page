@@ -350,6 +350,15 @@
       <strong data-i18n="f2.form.okTitle">¡Recibimos tu información!</strong>
       <span data-i18n="f2.form.okText">Te contactaremos por WhatsApp o correo para confirmar tu cupo y los detalles de la formación.</span>
     </div>
+    <!-- Respaldo si el servicio de correo no responde: los datos van listos por WhatsApp o correo -->
+    <div class="f2-form-ok f2-form-fallback" id="formFallback" hidden>
+      <strong data-i18n="f2.form.fbTitle">No pudimos enviar el formulario en este momento</strong>
+      <span data-i18n="f2.form.fbText">No te preocupes: tus datos ya quedaron listos en un mensaje. Envíanoslos por WhatsApp (y adjunta allí el comprobante si lo tienes) o por correo.</span>
+      <div class="hero-actions" style="margin-top:12px">
+        <a class="btn btn-whatsapp" id="fallbackWa" target="_blank" rel="noopener"><span data-i18n="f2.form.fbWa">Enviar por WhatsApp</span></a>
+        <a class="btn btn-ghost-light" id="fallbackMail"><span data-i18n="f2.form.fbMail">Enviar por correo</span></a>
+      </div>
+    </div>
 
     <div class="f2-form-grid">
       <!-- FORMULARIO -->
@@ -359,6 +368,7 @@
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" id="formNext" value="">
+        <input type="hidden" name="_replyto" id="formReplyTo" value="">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
         <div class="f2-field">
