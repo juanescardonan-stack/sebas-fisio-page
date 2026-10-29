@@ -33,7 +33,8 @@ Abre `js/config.js`. WhatsApp, dirección e Instagram ya están configurados; lo
 | `instagram` / `instagramHandle` | Enlace y usuario de Instagram |
 | `email` | Correo de contacto |
 | `googleReviewsUrl` | Enlace al perfil de Google (reseñas) |
-| `schedule` | Horario de atención (ES y EN) |
+| `schedule` | Horario de atención (ES y EN); se muestra en Contacto |
+| Sedes | Las direcciones, teléfonos y mapas de Medellín y Palmira están en la sección `#sedes` de `index.html` (los mapas son `<iframe>` de Google Maps con la dirección en el parámetro `q`; cámbiala ahí si se muda una sede) |
 | `course.upcoming` | Tarjetas "Próximas formaciones" de `cursos.html`: lista de `{ city, date }` (agrega o quita ciudades) |
 | `course.price` | Valor de la reserva que se muestra junto al QR (vacío = "Te lo confirmamos por WhatsApp") |
 | `course.seats` | Cupos por formación (se muestra en el botón "Reservar mi cupo") |

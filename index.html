@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="meta.title">Sebastián Rengifo · Fisioterapia en Medellín | Dolor lumbar, lesiones deportivas y recuperación</title>
-  <meta name="description" data-i18n-content="meta.desc" content="Fisioterapeuta en Medellín con +5 años de experiencia en dolor osteomuscular y experto en dolor lumbar. Valoración, quiropráctica, fisioterapia deportiva, ATM, presoterapia y recuperación muscular.">
+  <title data-i18n="meta.title">Sebastián Rengifo · Fisioterapeuta en Medellín y Palmira | Dolor lumbar, lesiones deportivas y recuperación</title>
+  <meta name="description" data-i18n-content="meta.desc" content="Fisioterapeuta en Medellín y Palmira con +5 años de experiencia en dolor osteomuscular y experto en dolor lumbar. Valoración, quiropráctica, fisioterapia deportiva, ATM, presoterapia y recuperación muscular.">
   <meta name="theme-color" content="#0d6e8f">
   <meta property="og:title" content="Sebastián Rengifo · Fisioterapia en Medellín">
   <meta property="og:description" content="Recupera tu movimiento y vive sin dolor. +1.500 personas atendidas · 4.9 ★ en Google.">
@@ -27,7 +27,7 @@
   <div class="container nav">
     <a href="index.html" class="brand" aria-label="Sebastián Rengifo Fisioterapia">
       <span class="brand-mark">SR</span>
-      <span class="brand-text">Sebastián Rengifo <small data-i18n="brand.sub">Fisioterapia · Medellín</small></span>
+      <span class="brand-text">Sebastián Rengifo <small data-i18n="brand.sub">Fisioterapeuta</small></span>
     </a>
     <nav aria-label="Principal">
       <ul class="nav-links" id="navLinks">
@@ -35,9 +35,9 @@
         <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
         <li><a href="#recuperacion" data-i18n="nav.recovery">Recuperación</a></li>
         <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
-        <li><a href="#opiniones" data-i18n="nav.reviews">Opiniones</a></li>
+        <li><a href="#sedes" data-i18n="nav.locations">Sedes</a></li>
         <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
-        <li><a href="cursos.html" class="nav-cta" data-i18n="nav.courses">Cursos FISIO 2.0</a></li>
+        <li><a href="cursos.html" class="nav-cta" data-i18n="nav.courses">Formación FISIO 2.0</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
@@ -80,10 +80,10 @@
     </div>
     <div class="hero-media reveal-right">
       <div class="hero-photo"><img src="assets/img/hero.jpg" alt="Sebastián Rengifo atendiendo a un paciente en consulta" width="1080" height="594" fetchpriority="high"></div>
-      <div class="float-card fc-1">
+      <a class="float-card fc-1" data-cfg-href="googleReviewsUrl" target="_blank" rel="noopener" aria-label="Ver reseñas en Google">
         <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3 6.2 21l1.5-6.6L2.6 9.9l6.7-.6L12 3l2.7 6.3 6.7.6-5.1 4.5 1.5 6.6z"/></svg></div>
         <div><strong>4.9 <span class="stars">★★★★★</span></strong><span data-i18n="hero.badge1">146 reseñas en Google</span></div>
-      </div>
+      </a>
       <div class="float-card fc-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
         <div><strong>+1.500</strong><span data-i18n="hero.badge2">personas atendidas</span></div>
@@ -98,7 +98,7 @@
     <div class="stat" style="--i:0"><strong><span class="counter" data-target="5" data-prefix="+"></span></strong><span data-i18n="stats.years">años de experiencia</span></div>
     <div class="stat" style="--i:1"><strong><span class="counter" data-target="1500" data-prefix="+" data-sep="."></span></strong><span data-i18n="stats.patients">personas atendidas</span></div>
     <div class="stat" style="--i:2"><strong><span class="counter" data-target="200" data-prefix="+"></span></strong><span data-i18n="stats.physios">fisioterapeutas formados</span></div>
-    <div class="stat" style="--i:3"><strong><span class="counter" data-target="4.9" data-decimals="1"></span> ★</strong><span data-i18n="stats.rating">calificación en Google</span></div>
+    <a class="stat" style="--i:3" data-cfg-href="googleReviewsUrl" target="_blank" rel="noopener"><strong><span class="counter" data-target="4.9" data-decimals="1"></span> ★</strong><span data-i18n="stats.rating">calificación en Google</span></a>
   </div>
 </section>
 
@@ -256,11 +256,6 @@
         </div>
       </div>
     </div>
-    <div class="recovery-gallery reveal" data-stagger>
-      <figure style="--i:0"><img src="assets/img/recuperacion/presoterapia.jpg" alt="Presoterapia" loading="lazy"><figcaption data-i18n="recovery.g1">Presoterapia</figcaption></figure>
-      <figure style="--i:1"><img src="assets/img/recuperacion/sauna.jpg" alt="Sauna y crioinmersión" loading="lazy"><figcaption data-i18n="recovery.g2">Sauna y crioinmersión</figcaption></figure>
-      <figure style="--i:2"><img src="assets/img/recuperacion/masaje.jpg" alt="Masaje terapéutico" loading="lazy"><figcaption data-i18n="recovery.g3">Masaje terapéutico</figcaption></figure>
-    </div>
   </div>
 </section>
 
@@ -339,8 +334,63 @@
         <span class="eyebrow" data-i18n="banner.eyebrow">Formación para fisioterapeutas</span>
         <h2 data-i18n="banner.title">FISIO 2.0: ejercicio terapéutico + terapia manual, un solo método</h2>
         <p data-i18n="banner.lead">Más de 200 fisioterapeutas formados. Razonamiento clínico y educación del paciente como pilares. Módulo virtual + 16 horas presenciales de práctica con casos reales.</p>
-        <a class="btn btn-light" href="cursos.html" data-i18n="banner.cta">Conocer el curso</a>
+        <a class="btn btn-light" href="cursos.html" data-i18n="banner.cta">Conocer la formación</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEDES ================= -->
+<section class="section" id="sedes">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="sedes.eyebrow">Sedes</span>
+      <h2 data-i18n="sedes.title">Dos sedes para atenderte</h2>
+      <p class="muted" data-i18n="sedes.lead">Agenda tu cita de lunes a sábado de 8:00 a. m. a 12:30 p. m. en la sede que te quede más cerca.</p>
+    </div>
+    <div class="sedes-grid reveal" data-stagger>
+
+      <!-- Sede Medellín -->
+      <article class="sede" style="--i:0">
+        <div class="sede-map">
+          <iframe src="https://www.google.com/maps?q=Carrera+77B+%2345G-61,+Medell%C3%ADn,+Antioquia,+Colombia&z=16&output=embed" title="Mapa de la sede Medellín" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="sede-body">
+          <span class="sede-tag" data-i18n="sedes.main">Sede principal</span>
+          <h3>Medellín</h3>
+          <ul class="sede-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><strong data-i18n="sedes.address">Dirección</strong><span data-i18n="sedes.med.address">Consultorio · Carrera 77B #45G - 61, Medellín, Colombia</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><div><strong>WhatsApp</strong><a data-wa="Hola! Quiero agendar una cita en la sede de Medellín." data-i18n-wa="wa.medellin" target="_blank" rel="noopener">+57 315 515 9416</a></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><strong data-i18n="sedes.hours">Horario</strong><span data-i18n="sedes.hoursV">Agenda tu cita · Lunes a sábado de 8:00 a. m. a 12:30 p. m.</span></div></li>
+          </ul>
+          <div class="sede-actions">
+            <a class="btn btn-whatsapp btn-sm" data-wa="Hola! Quiero agendar una cita en la sede de Medellín." data-i18n-wa="wa.medellin" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span data-i18n="sedes.book">Agendar cita</span></a>
+            <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&query=Carrera+77B+%2345G-61,+Medell%C3%ADn,+Antioquia,+Colombia" target="_blank" rel="noopener" data-i18n="sedes.directions">Cómo llegar</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sede Palmira -->
+      <article class="sede" style="--i:1">
+        <div class="sede-map">
+          <iframe src="https://www.google.com/maps?q=Centro+M%C3%A9dico+Popular,+Carrera+28+%2327-97,+Palmira,+Valle+del+Cauca,+Colombia&z=16&output=embed" title="Mapa de la sede Palmira" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="sede-body">
+          <span class="sede-tag" data-i18n="sedes.valle">Valle del Cauca</span>
+          <h3>Palmira</h3>
+          <ul class="sede-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><strong data-i18n="sedes.address">Dirección</strong><span data-i18n="sedes.pal.address">Carrera 28 #27-97, consultorio 306, Palmira, Colombia</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-4h4v4"/></svg><div><strong data-i18n="sedes.building">Edificio</strong><span data-i18n="sedes.pal.building">Centro Médico Popular</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg><div><strong data-i18n="sedes.phone">Celular</strong><a href="tel:+573171764066">317 176 4066</a></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><strong data-i18n="sedes.hours">Horario</strong><span data-i18n="sedes.hoursV">Agenda tu cita · Lunes a sábado de 8:00 a. m. a 12:30 p. m.</span></div></li>
+          </ul>
+          <div class="sede-actions">
+            <a class="btn btn-primary btn-sm" href="tel:+573171764066"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg><span data-i18n="sedes.call">Llamar</span></a>
+            <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&query=Centro+M%C3%A9dico+Popular,+Carrera+28+%2327-97,+Palmira,+Valle+del+Cauca,+Colombia" target="_blank" rel="noopener" data-i18n="sedes.directions">Cómo llegar</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -357,7 +407,7 @@
       <ul class="contact-list reveal-left">
         <li><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></div><div><strong>WhatsApp</strong><a data-wa="Hola! Vi tus servicios en la web, me gustaría saber más de ellos." data-i18n-wa="wa.general" target="_blank" rel="noopener" data-cfg="whatsappDisplay">+57 315 515 9416</a></div></li>
         <li id="calendarItem" hidden><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><strong data-i18n="contact.calendar">Agenda en línea</strong><a id="calendarLink" target="_blank" rel="noopener" data-i18n="contact.calendarLink">Reserva tú mismo en nuestro calendario</a></div></li>
-        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong data-i18n="contact.address">Consultorio</strong><a id="mapsLink" target="_blank" rel="noopener" data-cfg="address">Carrera 77B #45G - 61, Medellín</a></div></li>
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong data-i18n="contact.address">Sedes</strong><a href="#sedes" data-i18n="contact.addressV">Medellín · Palmira — ver direcciones y mapas</a></div></li>
         <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><strong data-i18n="contact.hours">Horario</strong><span data-cfg-lang="schedule">Lunes a sábado</span></div></li>
         <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></div><div><strong>Instagram</strong><a id="instagramLink" target="_blank" rel="noopener" data-cfg="instagramHandle">@fisio.sebastian.rengifo</a></div></li>
       </ul>
@@ -394,7 +444,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="brand"><span class="brand-mark">SR</span><span class="brand-text">Sebastián Rengifo <small data-i18n="brand.sub">Fisioterapia · Medellín</small></span></a>
+        <a href="index.html" class="brand"><span class="brand-mark">SR</span><span class="brand-text">Sebastián Rengifo <small data-i18n="brand.sub">Fisioterapeuta</small></span></a>
         <p style="margin-top:16px;max-width:360px" data-i18n="footer.tagline">Fisioterapia basada en evidencia: valoración, ejercicio terapéutico y terapia manual para que vuelvas a moverte sin dolor.</p>
         <div class="social">
           <a id="footerInstagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
@@ -416,8 +466,9 @@
         <h4 data-i18n="footer.links">Enlaces</h4>
         <ul>
           <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="#sedes" data-i18n="nav.locations">Sedes</a></li>
           <li><a href="#opiniones" data-i18n="nav.reviews">Opiniones</a></li>
-          <li><a href="cursos.html" data-i18n="nav.courses">Cursos FISIO 2.0</a></li>
+          <li><a href="cursos.html" data-i18n="nav.courses">Formación FISIO 2.0</a></li>
           <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
         </ul>
       </div>

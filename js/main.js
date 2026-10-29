@@ -69,6 +69,7 @@
     $$("#instagramLink, #footerInstagram").forEach(a => { if (CFG.instagram) a.href = CFG.instagram; });
     const mail = $("#footerEmail"); if (mail) { if (CFG.email) mail.href = "mailto:" + CFG.email; else mail.hidden = true; }
     const g = $("#googleReviewsLink"); if (g && CFG.googleReviewsUrl) g.href = CFG.googleReviewsUrl;
+    $$("[data-cfg-href]").forEach(el => { const v = CFG[el.dataset.cfgHref]; if (v) el.href = v; });
     const calItem = $("#calendarItem"), calLink = $("#calendarLink");
     if (calItem && calLink && CFG.calendarUrl) { calLink.href = CFG.calendarUrl; calItem.hidden = false; }
     const y = $("#year"); if (y) y.textContent = new Date().getFullYear();

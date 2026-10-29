@@ -6,14 +6,15 @@
 window.I18N = {
   en: {
     /* --- Comunes --- */
-    "brand.sub": "Physiotherapy · Medellín",
+    "brand.sub": "Physiotherapist",
     "nav.home": "Home",
     "nav.services": "Services",
     "nav.recovery": "Recovery",
     "nav.about": "About me",
     "nav.reviews": "Reviews",
     "nav.contact": "Contact",
-    "nav.courses": "FISIO 2.0 Courses",
+    "nav.courses": "FISIO 2.0 Training",
+    "nav.locations": "Locations",
     "nav.book": "Book",
     "footer.tagline": "Evidence-based physiotherapy: assessment, therapeutic exercise and manual therapy so you can move without pain again.",
     "footer.services": "Services",
@@ -40,8 +41,8 @@ window.I18N = {
     "wa.enroll": "Hi Sebastián, I'd like to reserve my spot in the FISIO 2.0 course.",
 
     /* --- Index: meta & hero --- */
-    "meta.title": "Sebastián Rengifo · Physiotherapy in Medellín | Low back pain, sports injuries and recovery",
-    "meta.desc": "Physiotherapist in Medellín with 5+ years of experience in musculoskeletal pain and an expert in low back pain. Assessment, chiropractic, sports physiotherapy, TMJ, pressotherapy and muscle recovery.",
+    "meta.title": "Sebastián Rengifo · Physiotherapist in Medellín and Palmira | Low back pain, sports injuries and recovery",
+    "meta.desc": "Physiotherapist in Medellín and Palmira with 5+ years of experience in musculoskeletal pain and an expert in low back pain. Assessment, chiropractic, sports physiotherapy, TMJ, pressotherapy and muscle recovery.",
     "hero.eyebrow": "Physiotherapy in Medellín",
     "hero.title": "Recover your movement and <em>live pain-free</em>",
     "hero.lead": "More than 5 years of experience in musculoskeletal pain and an expert in low back pain. Precise assessment, evidence-based treatment and real support until you get back to doing what you love.",
@@ -167,7 +168,7 @@ window.I18N = {
     "banner.eyebrow": "Training for physiotherapists",
     "banner.title": "FISIO 2.0: therapeutic exercise + manual therapy, one single method",
     "banner.lead": "More than 200 physiotherapists trained. Clinical reasoning and patient education as pillars. Online module + 16 hours of in-person practice with real cases.",
-    "banner.cta": "Learn about the course",
+    "banner.cta": "Learn about the training",
 
     /* --- Contact --- */
     "contact.eyebrow": "Contact",
@@ -175,7 +176,8 @@ window.I18N = {
     "contact.lead": "Message us on WhatsApp or leave your details and we'll confirm availability.",
     "contact.calendar": "Online booking",
     "contact.calendarLink": "Book yourself in our calendar",
-    "contact.address": "Clinic",
+    "contact.address": "Locations",
+    "contact.addressV": "Medellín · Palmira — see addresses and maps",
     "contact.hours": "Hours",
     "form.name": "Name",
     "form.namePh": "Your name",
@@ -196,6 +198,25 @@ window.I18N = {
     "form.waIntro": "Hi Sebastián, my name is",
     "form.waService": "I'm interested in",
     "form.waCase": "My case",
+
+    /* --- Sedes --- */
+    "sedes.eyebrow": "Locations",
+    "sedes.title": "Two locations to see you",
+    "sedes.lead": "Book your appointment Monday to Saturday, 8:00 a.m. to 12:30 p.m., at the location closest to you.",
+    "sedes.main": "Main location",
+    "sedes.valle": "Valle del Cauca",
+    "sedes.address": "Address",
+    "sedes.med.address": "Clinic · Carrera 77B #45G - 61, Medellín, Colombia",
+    "sedes.pal.address": "Carrera 28 #27-97, office 306, Palmira, Colombia",
+    "sedes.building": "Building",
+    "sedes.pal.building": "Centro Médico Popular",
+    "sedes.phone": "Mobile",
+    "sedes.hours": "Hours",
+    "sedes.hoursV": "Book your appointment · Monday to Saturday, 8:00 a.m. to 12:30 p.m.",
+    "sedes.book": "Book an appointment",
+    "sedes.call": "Call",
+    "sedes.directions": "Get directions",
+    "wa.medellin": "Hi! I'd like to book an appointment at the Medellín location.",
 
     /* --- Formación FISIO 2.0 (página de cursos, versión brochure) --- */
     "cmeta.title": "FISIO 2.0 Training · Therapeutic exercise + manual therapy | Sebastián Rengifo",
@@ -337,6 +358,7 @@ window.I18N = {
     "f2.form.terms2": "With at least 7 days' notice you can move your spot to the next date or city at no cost. Without prior notice or in case of no-show, the reservation amount is non-refundable. The right of withdrawal under article 47 of Colombian Law 1480 of 2011 is respected.",
     "f2.form.accept": "I have read the terms and conditions and I agree with them.",
     "f2.form.error": "Please check the fields marked with * before sending.",
+    "f2.form.terms": "Please accept the terms and conditions before sending the form.",
     "f2.form.send": "Send",
     "f2.form.privacy": "Your details are only used to contact you about the FISIO 2.0 training.",
     "f2.pay.title": "Reservation payment by QR",

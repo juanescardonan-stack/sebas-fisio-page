@@ -8,6 +8,7 @@ window.SITE_CONFIG = {
   whatsappDisplay: "+57 315 515 9416",
 
   // Dirección del consultorio y enlace de Google Maps
+  // Sede principal (la sección "Sedes" de index.html tiene las dos direcciones y mapas)
   address: "Carrera 77B #45G - 61, Medellín, Colombia",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Carrera+77B+%2345G-61%2C+Medell%C3%ADn%2C+Colombia",
 
@@ -21,10 +22,10 @@ window.SITE_CONFIG = {
   email: "",                                                   // <-- CAMBIAR (si queda vacío, el ícono de correo se oculta)
 
   // Enlace al perfil de Google (reseñas)
-  googleReviewsUrl: "https://www.google.com/maps",             // <-- CAMBIAR
+  googleReviewsUrl: "https://maps.app.goo.gl/tXSD6DExu8gXHnYG8",
 
   // Horario de atención
-  schedule: { es: "Lunes a sábado · 7:00 a.m. – 7:00 p.m.", en: "Monday to Saturday · 7:00 a.m. – 7:00 p.m." }, // <-- CAMBIAR
+  schedule: { es: "Agenda tu cita · Lunes a sábado de 8:00 a. m. a 12:30 p. m.", en: "Book your appointment · Monday to Saturday, 8:00 a.m. to 12:30 p.m." },
 
   // Formulario de reserva de la página de cursos → a qué correo y por qué servicio se envía.
   //  - formEmail: destinatario (también se usa para el respaldo por correo si el servicio falla).
@@ -34,7 +35,7 @@ window.SITE_CONFIG = {
   //      b) Google Apps Script propio (recomendado, más estable; ver README sección 3):
   //         "https://script.google.com/macros/s/XXXXXXXX/exec"
   formEmail: "destinyrehabilitacion@gmail.com",
-  formEndpoint: "https://script.google.com/macros/s/AKfycbz6Bdg6zGUAn2rGbNjY0PL40dal1BWqtnn3t9-BmilNNoDzMPZ2MbexjE3xEwwaH2spVw/exec",  // <-- CAMBIAR por la URL de Apps Script cuando la tengas
+  formEndpoint: "https://script.google.com/macros/s/AKfycbz6Bdg6zGUAn2rGbNjY0PL40dal1BWqtnn3t9-BmilNNoDzMPZ2MbexjE3xEwwaH2spVw/exec",  // Apps Script publicado (ver README §3)
 
   // Próxima fecha del curso FISIO 2.0
   course: {

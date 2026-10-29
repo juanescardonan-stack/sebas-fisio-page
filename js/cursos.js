@@ -109,7 +109,14 @@
     const err = $("#formError"), btn = $("#formSubmit"), fb = $("#formFallback");
     if (fb) fb.hidden = true;
     if (!form.checkValidity()) {
-      if (err) { err.hidden = false; err.textContent = t("f2.form.error") || err.dataset.es || err.textContent; }
+      const terminos = form.querySelector('input[name="Acepta términos"]');
+      const faltanOtros = Array.from(form.elements).some(el => el !== terminos && typeof el.checkValidity === "function" && !el.checkValidity());
+      if (err) {
+        err.hidden = false;
+        err.textContent = (!faltanOtros && terminos && !terminos.checked)
+          ? (t("f2.form.terms") || "Por favor acepta los términos y condiciones antes de enviar el formulario.")
+          : (t("f2.form.error") || err.dataset.es || "Revisa los campos marcados con * antes de enviar.");
+      }
       const first = form.querySelector(":invalid"); if (first) first.focus();
       return;
     }
