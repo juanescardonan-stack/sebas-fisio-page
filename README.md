@@ -6,12 +6,13 @@ Sitio estático (HTML + CSS + JavaScript puro, sin dependencias ni proceso de bu
 
 ```
 ├── index.html          Página principal: servicios, recuperación muscular, sobre mí, opiniones, contacto
-├── cursos.html         Página del curso FISIO 2.0
+├── cursos.html         Página Formación FISIO 2.0 (copia del brochure + formulario de reserva con pago por QR)
 ├── css/styles.css      Estilos (paleta clínica azul/teal + blanco, responsive)
 ├── js/config.js        ⚙️  DATOS DE CONTACTO — edita aquí WhatsApp, dirección, Instagram, agenda
 ├── js/i18n.js          Traducciones al inglés (el español vive en el HTML)
 ├── js/main.js          Animaciones, menú, carrusel, traducción, formulario → WhatsApp
 ├── js/columna3d.js     Columna vertebral 3D de fondo en el hero (Three.js desde CDN; sin WebGL simplemente no aparece)
+├── js/cursos.js        Página de formación: tarjetas de próximas fechas (desde config.js) y formulario de reserva
 └── assets/
     ├── img/            Fotos optimizadas para web
     ├── video/          Video de recuperación muscular (comprimido, 5 MB) + poster
@@ -32,7 +33,9 @@ Abre `js/config.js`. WhatsApp, dirección e Instagram ya están configurados; lo
 | `email` | Correo de contacto |
 | `googleReviewsUrl` | Enlace al perfil de Google (reseñas) |
 | `schedule` | Horario de atención (ES y EN) |
-| `course.dates` / `course.city` | Próxima fecha y ciudad del curso FISIO 2.0 |
+| `course.upcoming` | Tarjetas "Próximas formaciones" de `cursos.html`: lista de `{ city, date }` (agrega o quita ciudades) |
+| `course.price` | Valor de la reserva que se muestra junto al QR (vacío = "Te lo confirmamos por WhatsApp") |
+| `course.seats` | Cupos por formación (se muestra en el botón "Reservar mi cupo") |
 
 Todos los botones de WhatsApp del sitio abren un chat con un mensaje precargado según el servicio.
 
@@ -53,7 +56,19 @@ Todos los botones de WhatsApp del sitio abren un chat con un mensaje precargado 
 
 Para usar un dominio propio después, agrega el dominio en **Settings → Pages → Custom domain** y configura el DNS según indique GitHub.
 
-## 3. Editar contenido
+## 3. Formulario de reserva (cursos.html) → correo
+
+El formulario envía los datos a **destinyrehabilitacion@gmail.com** usando el servicio gratuito [FormSubmit](https://formsubmit.co) (no requiere servidor ni cuenta).
+
+**Activación (solo la primera vez):** tras el primer envío real desde el sitio publicado, FormSubmit manda un correo a destinyrehabilitacion@gmail.com con un botón **"Activate form"**. Hay que hacer clic ahí una vez; desde entonces cada envío llega como correo con una tabla de los datos y el comprobante adjunto. Si no llega, revisar la carpeta de spam.
+
+- Para cambiar el destinatario: edita el `action` del `<form id="enrollForm">` en `cursos.html` (`https://formsubmit.co/OTRO@correo.com`) y vuelve a activar.
+- El asunto del correo se define en el campo oculto `_subject`.
+- Tras enviar, el visitante vuelve a `cursos.html?enviado=1` y ve el mensaje de confirmación.
+- El QR de pago es `assets/img/cursos/qr-pago.jpg` (Bre-B / Nequi, llave 315 515 9416). Si cambia la llave, reemplaza la imagen y el dato en la tarjeta de pago de `cursos.html`.
+- El texto de términos/cancelaciones está en `cursos.html` (bloque `.f2-terms`) y su traducción en `js/i18n.js` (`f2.form.terms1/2`).
+
+## 4. Editar contenido
 
 - **Textos en español**: directamente en `index.html` / `cursos.html`.
 - **Textos en inglés**: en `js/i18n.js`. Cada texto del HTML tiene un atributo `data-i18n="clave"`; esa misma clave en `i18n.js` contiene la traducción.
