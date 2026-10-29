@@ -58,6 +58,8 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="inicio">
   <div class="hero-bg-shape"></div>
+  <!-- Columna vertebral 3D de fondo (decorativa; si no hay WebGL simplemente no aparece) -->
+  <div class="hero-3d" id="columna3d" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="reveal-left">
       <span class="eyebrow" data-i18n="hero.eyebrow">Fisioterapia en Medellín</span>
@@ -77,11 +79,7 @@
       </ul>
     </div>
     <div class="hero-media reveal-right">
-      <div class="hero-photo">
-        <img src="assets/img/hero.jpg" alt="Sebastián Rengifo atendiendo a un paciente en consulta" width="1080" height="594" fetchpriority="high">
-        <!-- Columna vertebral 3D (reemplaza la foto cuando WebGL está disponible) -->
-        <div class="hero-3d" id="columna3d" aria-hidden="true"></div>
-      </div>
+      <div class="hero-photo"><img src="assets/img/hero.jpg" alt="Sebastián Rengifo atendiendo a un paciente en consulta" width="1080" height="594" fetchpriority="high"></div>
       <div class="float-card fc-1">
         <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3 6.2 21l1.5-6.6L2.6 9.9l6.7-.6L12 3l2.7 6.3 6.7.6-5.1 4.5 1.5 6.6z"/></svg></div>
         <div><strong>4.9 <span class="stars">★★★★★</span></strong><span data-i18n="hero.badge1">146 reseñas en Google</span></div>

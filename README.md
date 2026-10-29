@@ -11,7 +11,7 @@ Sitio estático (HTML + CSS + JavaScript puro, sin dependencias ni proceso de bu
 ├── js/config.js        ⚙️  DATOS DE CONTACTO — edita aquí WhatsApp, dirección, Instagram, agenda
 ├── js/i18n.js          Traducciones al inglés (el español vive en el HTML)
 ├── js/main.js          Animaciones, menú, carrusel, traducción, formulario → WhatsApp
-├── js/columna3d.js     Columna vertebral 3D del hero (Three.js desde CDN; si no hay WebGL se muestra la foto)
+├── js/columna3d.js     Columna vertebral 3D de fondo en el hero (Three.js desde CDN; sin WebGL simplemente no aparece)
 └── assets/
     ├── img/            Fotos optimizadas para web
     ├── video/          Video de recuperación muscular (comprimido, 5 MB) + poster
@@ -59,7 +59,7 @@ Para usar un dominio propio después, agrega el dominio en **Settings → Pages 
 - **Textos en inglés**: en `js/i18n.js`. Cada texto del HTML tiene un atributo `data-i18n="clave"`; esa misma clave en `i18n.js` contiene la traducción.
 - **Precios**: están en las tarjetas de `index.html` (sección `#servicios`) y en la sección de recuperación muscular.
 - **Fotos**: reemplaza los archivos de `assets/img/` manteniendo el nombre, o cambia la ruta en el `src` de la imagen. Recomendado: JPG de máx. 1200 px de ancho.
-- **Columna 3D del hero**: en `js/columna3d.js`, el bloque `CONFIG` controla la velocidad y sentido del giro, los colores (hueso, discos, luces) y si se muestran las etiquetas C1…L5. La columna gira sola y también se puede arrastrar con el mouse o el dedo. Para volver a la foto, borra el `<div id="columna3d">` del `index.html`.
+- **Columna 3D de fondo del hero**: gira sola detrás del texto y la foto. En `js/columna3d.js`, el bloque `CONFIG` controla velocidad, sentido del giro, colores (hueso, discos, luces) y etiquetas C1…L5. Su posición, tamaño y desvanecido se ajustan en `css/styles.css` (bloque "Columna vertebral 3D de fondo": variables `--x3d`, `--y3d`, `--alto3d`, `opacity` y la máscara degradada; hay valores distintos para móvil). Para quitarla, borra el `<div id="columna3d">` del `index.html`.
 - **Video**: `assets/video/recuperacion.mp4` (vertical 9:16). Para cambiarlo, usa un MP4 H.264 de menos de ~10 MB.
 
 ## Características

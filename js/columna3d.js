@@ -1,19 +1,23 @@
 /* ============================================================================
-   Columna vertebral 3D para el hero (Three.js)
-   - Se monta dentro de #columna3d (dentro de .hero-photo) y reemplaza la foto.
-   - Si WebGL no está disponible, no hace nada y la foto queda como respaldo.
-   - Paleta integrada con el sitio: fondo azul profundo (--primary-deep),
-     hueso marfil, discos y contraluz en el teal de acento (--accent).
+   Columna vertebral 3D de fondo para el hero (Three.js)
+   - Se monta en #columna3d, un lienzo transparente que cubre toda la sección
+     .hero por detrás del contenido; el CSS la desvanece con una máscara
+     degradada y pone un halo teal detrás.
+   - Si WebGL no está disponible, no hace nada (el hero queda como siempre).
+   - Paleta integrada con el sitio sobre fondo claro: hueso azul-teal pálido,
+     discos en el teal de acento (--accent) y luces en --primary.
    ============================================================================ */
 import * as THREE from 'three';
 
 const CONFIG = {
-  velocidadGiro: 0.0045,      // radianes por frame (a 60 fps)
+  velocidadGiro: 0.0035,      // radianes por frame (a 60 fps)
   sentidoHorario: true,       // giro horario visto desde arriba
   mostrarEtiquetas: false,    // C1…L5 y S junto a cada vértebra
-  colorHueso: '#e3d6bd',      // base de la textura ósea (marfil cálido)
+  alturaRelativa: 1.12,       // alto de la columna respecto al alto del hero (>1 = se sale y se funde)
+  colorHueso: '#b9dbe2',      // base de la textura ósea (azul-teal pálido, para fondo claro)
+  colorPoros: [70, 120, 140], // tono de poros y vetas (RGB)
   colorDisco: 0x19b39c,       // --accent del sitio
-  colorContraluz: 0x3fd0b8,   // teal claro para el borde iluminado
+  colorContraluz: 0x19b39c,   // contraluz teal
   colorRelleno: 0x0d6e8f      // --primary del sitio
 };
 
@@ -43,9 +47,9 @@ function iniciar() {
   contenedor.appendChild(renderer.domElement);
 
   /* ---------------- Luces (clave cálida, contraluz teal, relleno azul) ---------------- */
-  escena.add(new THREE.HemisphereLight(0xfff4e6, 0x08303f, 0.6));
+  escena.add(new THREE.HemisphereLight(0xffffff, 0x0a4f68, 0.9));
 
-  const luzClave = new THREE.DirectionalLight(0xfff3e2, 2.3);
+  const luzClave = new THREE.DirectionalLight(0xffffff, 2.0);
   luzClave.position.set(6, 9, 8);
   luzClave.castShadow = true;
   luzClave.shadow.mapSize.set(1024, 1024);
@@ -65,12 +69,12 @@ function iniciar() {
 
   /* ---------------- Materiales ---------------- */
   const texHueso = crearTexturaHueso(renderer);
-  const matHueso = new THREE.MeshStandardMaterial({ map: texHueso, bumpMap: texHueso, bumpScale: 0.035, roughness: 0.78, metalness: 0 });
+  const matHueso = new THREE.MeshStandardMaterial({ map: texHueso, bumpMap: texHueso, bumpScale: 0.03, roughness: 0.6, metalness: 0.05 });
   const matDisco = new THREE.MeshPhysicalMaterial({
-    color: CONFIG.colorDisco, emissive: CONFIG.colorDisco, emissiveIntensity: 0.28,
-    roughness: 0.35, clearcoat: 0.5, clearcoatRoughness: 0.3, transparent: true, opacity: 0.95
+    color: CONFIG.colorDisco, emissive: CONFIG.colorDisco, emissiveIntensity: 0.35,
+    roughness: 0.3, clearcoat: 0.6, clearcoatRoughness: 0.3
   });
-  const matForamen = new THREE.MeshStandardMaterial({ color: 0x3a2e1f, roughness: 1 });
+  const matForamen = new THREE.MeshStandardMaterial({ color: 0x2f5f70, roughness: 1 });
 
   const ARRIBA = new THREE.Vector3(0, 1, 0);
 
@@ -319,34 +323,31 @@ function iniciar() {
   pivote.rotation.y = -Math.PI / 2 - 0.55;     // arranca en vista lateral-oblicua
   escena.add(pivote);
 
-  /* ---------------- Encuadre según el tamaño del contenedor ---------------- */
+  /* ---------------- Encuadre: cubre todo el hero y sitúa la columna en --x3d (CSS) ---------------- */
   function ajustar() {
     const w = contenedor.clientWidth || 1, h = contenedor.clientHeight || 1;
     renderer.setSize(w, h, false);
     camara.aspect = w / h;
     camara.updateProjectionMatrix();
     const fov = THREE.MathUtils.degToRad(camara.fov);
-    const distAlto = (tamano.y / 2) / Math.tan(fov / 2);
-    const distAncho = (Math.max(tamano.x, tamano.z) / 2) / Math.tan(fov / 2) / camara.aspect;
-    camara.position.set(0, 0.5, Math.max(distAlto, distAncho) * 1.08 + 0.8);
-    camara.lookAt(0, -0.1, 0);
+    // Tamaño y posición se leen del CSS (--alto3d, --x3d, --y3d) para poder variar por breakpoint
+    const css = getComputedStyle(contenedor);
+    const altoRel = parseFloat(css.getPropertyValue('--alto3d')) || CONFIG.alturaRelativa;
+    const fx = parseFloat(css.getPropertyValue('--x3d')) / 100 || 0.5;
+    const fy = parseFloat(css.getPropertyValue('--y3d')) / 100 || 0.5;
+    // Distancia para que la columna mida `altoRel` veces el alto visible
+    const dist = (tamano.y / 2) / Math.tan(fov / 2) / altoRel;
+    camara.position.set(0, 0, dist);
+    camara.lookAt(0, 0, 0);
+    const altoVisible = 2 * dist * Math.tan(fov / 2);
+    const anchoVisible = altoVisible * camara.aspect;
+    pivote.position.x = (fx - 0.5) * anchoVisible;
+    pivote.position.y = (0.5 - fy) * altoVisible;
   }
   ajustar();
   if ('ResizeObserver' in window) new ResizeObserver(ajustar).observe(contenedor);
   else window.addEventListener('resize', ajustar);
-
-  /* ---------------- Arrastrar para girar (horizontal); el scroll vertical sigue libre ---------------- */
-  let arrastrando = false, px = 0, py = 0, inclinacion = 0;
-  const lienzo = renderer.domElement;
-  lienzo.addEventListener('pointerdown', e => { arrastrando = true; px = e.clientX; py = e.clientY; lienzo.setPointerCapture(e.pointerId); });
-  lienzo.addEventListener('pointerup', e => { arrastrando = false; lienzo.releasePointerCapture(e.pointerId); });
-  lienzo.addEventListener('pointercancel', () => arrastrando = false);
-  lienzo.addEventListener('pointermove', e => {
-    if (!arrastrando) return;
-    pivote.rotation.y += (e.clientX - px) * 0.008;
-    inclinacion = THREE.MathUtils.clamp(inclinacion + (e.clientY - py) * 0.004, -0.5, 0.5);
-    px = e.clientX; py = e.clientY;
-  });
+  const arrastrando = false, inclinacion = 0;   // es un fondo decorativo: sin interacción
 
   /* ---------------- Animación (giro automático, se pausa fuera de pantalla) ---------------- */
   const direccion = CONFIG.sentidoHorario ? -1 : 1;
@@ -361,17 +362,13 @@ function iniciar() {
     requestAnimationFrame(animar);
     if (!visible) return;
     const dt = Math.min(reloj.getDelta(), 0.1) * 60;
-    if (!arrastrando && !reducirMovimiento) {
-      pivote.rotation.y += CONFIG.velocidadGiro * direccion * dt;
-      inclinacion *= Math.pow(0.96, dt);
-    }
+    if (!arrastrando && !reducirMovimiento) pivote.rotation.y += CONFIG.velocidadGiro * direccion * dt;
     pivote.rotation.x = inclinacion;
     renderer.render(escena, camara);
   }
   animar();
 
-  // Oculta la foto de respaldo y revela el lienzo con un fundido
-  contenedor.closest('.hero-photo')?.classList.add('is-3d');
+  // Revela el lienzo con un fundido
   requestAnimationFrame(() => contenedor.classList.add('ready'));
 
   window.columna3D = { escena, camara, renderer, pivote, columna, config: CONFIG };
@@ -385,29 +382,30 @@ function crearTexturaHueso(renderer, tam = 1024) {
   const r = Math.random;
   ctx.fillStyle = CONFIG.colorHueso;
   ctx.fillRect(0, 0, tam, tam);
+  const [pr, pg, pb] = CONFIG.colorPoros;
   for (let i = 0; i < 90; i++) {
     const x = r() * tam, y = r() * tam, rad = 60 + r() * 220;
     const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
-    const tono = r() < 0.5 ? '170,140,95' : '245,236,214';
+    const tono = r() < 0.5 ? `${pr + 30},${pg + 30},${pb + 30}` : '240,250,252';
     g.addColorStop(0, `rgba(${tono},0.3)`); g.addColorStop(1, `rgba(${tono},0)`);
     ctx.fillStyle = g; ctx.fillRect(x - rad, y - rad, rad * 2, rad * 2);
   }
   ctx.lineWidth = 1;
   for (let i = 0; i < 400; i++) {
-    ctx.strokeStyle = `rgba(130,100,62,${0.07 + r() * 0.13})`;
+    ctx.strokeStyle = `rgba(${pr},${pg},${pb},${0.07 + r() * 0.13})`;
     ctx.beginPath();
     let x = r() * tam, y = r() * tam; ctx.moveTo(x, y);
     for (let k = 0; k < 6; k++) { x += (r() - 0.5) * 40; y += (r() - 0.5) * 40; ctx.lineTo(x, y); }
     ctx.stroke();
   }
   for (let i = 0; i < 14000; i++) {
-    ctx.fillStyle = `rgba(${95 + r() * 50},${75 + r() * 35},${45 + r() * 25},${0.1 + r() * 0.3})`;
+    ctx.fillStyle = `rgba(${pr - 20 + r() * 50},${pg - 20 + r() * 40},${pb - 10 + r() * 30},${0.1 + r() * 0.3})`;
     ctx.beginPath();
     ctx.ellipse(r() * tam, r() * tam, 0.8 + r() * 2.6, 0.8 + r() * 2.6, r() * Math.PI, 0, Math.PI * 2);
     ctx.fill();
   }
   for (let i = 0; i < 6000; i++) {
-    ctx.fillStyle = `rgba(250,244,228,${0.1 + r() * 0.3})`;
+    ctx.fillStyle = `rgba(250,255,255,${0.1 + r() * 0.3})`;
     ctx.beginPath(); ctx.arc(r() * tam, r() * tam, 0.6 + r() * 1.6, 0, Math.PI * 2); ctx.fill();
   }
   const tex = new THREE.CanvasTexture(c);

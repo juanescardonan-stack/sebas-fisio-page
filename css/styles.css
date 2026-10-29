@@ -144,28 +144,25 @@ p { margin: 0 0 1em; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .hero-bg-shape { position: absolute; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(25,179,156,.18), transparent 65%); right: -140px; top: -120px; pointer-events: none; }
 
-/* ---------- Columna vertebral 3D en el hero ---------- */
-.hero-photo { position: relative; }
-.hero-photo.is-3d { aspect-ratio: 1 / 1; background: var(--primary-deep); }
-.hero-photo.is-3d img { visibility: hidden; }
+/* ---------- Columna vertebral 3D de fondo en el hero ---------- */
+.hero > .container { position: relative; z-index: 1; }
+.hero .lead { max-width: 560px; }
 .hero-3d {
-  position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; cursor: grab; touch-action: pan-y; user-select: none;
+  --x3d: 53%;                       /* centro horizontal de la columna (lo usan la máscara y el 3D) */
+  --y3d: 50%;                       /* centro vertical */
+  --alto3d: 1.12;                   /* alto de la columna respecto al alto del hero */
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; user-select: none;
+  opacity: 0; transition: opacity 1.6s ease;
+  /* Halo teal/azul detrás de la columna, degradado hacia el fondo claro */
   background:
-    radial-gradient(60% 55% at 50% 52%, rgba(25,179,156,.28), transparent 70%),
-    radial-gradient(90% 70% at 15% 10%, rgba(13,110,143,.55), transparent 60%),
-    linear-gradient(160deg, #0a4f68 0%, var(--primary-deep) 45%, #041b26 100%);
+    radial-gradient(22% 70% at var(--x3d) var(--y3d), rgba(25,179,156,.22), rgba(13,110,143,.10) 55%, transparent 100%),
+    radial-gradient(40% 90% at var(--x3d) var(--y3d), rgba(215,243,238,.9), transparent 100%);
+  /* Desvanecido en los bordes para que se funda con el hero */
+  -webkit-mask-image: radial-gradient(34% 60% at var(--x3d) var(--y3d), #000 30%, rgba(0,0,0,.55) 65%, transparent 100%);
+          mask-image: radial-gradient(34% 60% at var(--x3d) var(--y3d), #000 30%, rgba(0,0,0,.55) 65%, transparent 100%);
 }
-.hero-3d::before { /* viñeta suave en los bordes para dar profundidad */
-  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
-  background: radial-gradient(85% 85% at 50% 50%, transparent 55%, rgba(3,18,26,.55) 100%);
-}
-.hero-3d::after { /* brillo teal en el borde inferior, a juego con los botones */
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; pointer-events: none; z-index: 1;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: .7;
-}
-.hero-3d.ready { opacity: 1; }
-.hero-3d:active { cursor: grabbing; }
-.hero-3d canvas { display: block; width: 100% !important; height: 100% !important; position: relative; }
+.hero-3d.ready { opacity: .8; }
+.hero-3d canvas { display: block; width: 100% !important; height: 100% !important; }
 
 /* ---------- Stats ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: -40px; position: relative; z-index: 2; }
@@ -394,6 +391,8 @@ p { margin: 0 0 1em; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-media { order: -1; }
   .hero-photo { aspect-ratio: 16 / 10; }
+  .hero-3d { --x3d: 93%; --y3d: 60%; --alto3d: .55; }
+  .hero-3d.ready { opacity: .45; }
   .fc-1 { left: 10px; bottom: 14px; }
   .fc-2 { right: 10px; top: 14px; }
   .recovery-grid, .about-grid, .contact-grid, .enroll { grid-template-columns: 1fr; }
