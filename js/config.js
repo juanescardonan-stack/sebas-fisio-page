@@ -57,7 +57,7 @@ window.SITE_CONFIG = {
     // Valor de la reserva / inversión que se muestra junto al QR (deja "" para mostrar "Te lo confirmamos por WhatsApp")
     price: { es: "$699.900 COP", en: "$699,900 COP" },
     // Valor de la reserva (50%) que se paga por QR para asegurar el cupo
-    deposit: { es: "$349.950 COP", en: "$349,950 COP" },
+    deposit: { es: "$350.000 COP", en: "$350,000 COP" },
     // Tarjetas "PRÓXIMAS FORMACIONES" de la página de cursos: agrega o quita ciudades y fechas
     upcoming: [                                                                      // <-- CAMBIAR
       { city: "Medellín", date: { es: "10 y 11 de abril de 2027", en: "April 10–11, 2027" } }
