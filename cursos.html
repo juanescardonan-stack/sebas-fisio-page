@@ -432,7 +432,7 @@
     <div class="f2-form-head reveal">
       <h2 class="f2-title" data-i18n-html="f2.form.title">RESERVA <span>TU CUPO</span></h2>
       <div class="f2-rule"></div>
-      <p class="f2-text f2-text-lg" data-i18n="f2.form.lead">Déjanos tus datos y la ciudad que te interesa. Si ya quieres asegurar tu cupo, realiza el pago por QR y adjunta el comprobante.</p>
+      <p class="f2-text f2-text-lg" data-i18n="f2.form.lead">Déjanos tus datos. Para asegurar tu cupo, reserva con el 50% del valor de la formación pagando por QR y adjunta el comprobante; el 50% restante se paga el día de la formación.</p>
     </div>
 
     <div class="f2-form-ok" id="formOk" hidden>
@@ -488,7 +488,7 @@
           </fieldset>
           <fieldset class="f2-field f2-fieldset">
             <legend data-i18n="f2.form.goal">¿Qué deseas? <span class="req">*</span></legend>
-            <label class="f2-radio"><input type="radio" name="Solicitud" value="Reservar mi cupo (pago por QR)" required><span data-i18n="f2.form.goal1">Reservar mi cupo (pago por QR)</span></label>
+            <label class="f2-radio"><input type="radio" name="Solicitud" value="Reservar mi cupo (pago por QR)" required><span data-i18n="f2.form.goal1">Reservar mi cupo con el 50% (pago por QR)</span></label>
             <label class="f2-radio"><input type="radio" name="Solicitud" value="Recibir información de próximas fechas"><span data-i18n="f2.form.goal2">Recibir información de próximas fechas</span></label>
           </fieldset>
         </div>
@@ -503,7 +503,7 @@
         </div>
         <div class="f2-terms">
           <strong data-i18n="f2.form.termsTitle">Reserva, cambios y cancelaciones</strong>
-          <p data-i18n="f2.form.terms1">Tu cupo queda confirmado una vez verifiquemos el pago de la reserva. Los cupos son limitados (25 por formación) y se asignan por orden de pago.</p>
+          <p data-i18n="f2.form.terms1">Tu cupo queda confirmado una vez verifiquemos el pago de la reserva (50% del valor de la formación). El 50% restante se paga el día de la formación. Los cupos son limitados (25 por formación) y se asignan por orden de pago.</p>
           <p data-i18n="f2.form.terms2">Si avisas con mínimo 7 días de anticipación puedes trasladar tu cupo a la siguiente fecha o ciudad sin costo. Sin aviso previo o en caso de inasistencia, el valor de la reserva no es reembolsable. Se respeta el derecho de retracto del artículo 47 de la Ley 1480 de 2011.</p>
           <label class="f2-check"><input type="checkbox" name="Acepta términos" value="Acepto" required><span data-i18n="f2.form.accept">He leído los términos y condiciones, estoy de acuerdo con ellos.</span></label>
         </div>
@@ -515,17 +515,18 @@
       <!-- PAGO POR QR -->
       <aside class="f2-pay reveal-right">
         <h3 data-i18n="f2.pay.title">Pago de la reserva por QR</h3>
-        <p data-i18n="f2.pay.lead">Escanea el código desde la app de tu banco o Nequi (Bre-B) para pagar tu reserva.</p>
+        <p data-i18n="f2.pay.lead">Escanea el código desde la app de tu banco o Nequi (Bre-B) y paga el 50% para reservar tu cupo.</p>
         <figure class="f2-qr">
           <img src="assets/img/cursos/qr-pago.jpg" alt="Código QR Bre-B / Nequi para pagar la reserva a Sebastián Rengifo, llave 315 515 9416" width="410" height="560">
         </figure>
         <dl class="f2-pay-data">
           <div><dt data-i18n="f2.pay.holder">Titular</dt><dd>Sebastián Rengifo</dd></div>
           <div><dt data-i18n="f2.pay.key">Llave Bre-B · Nequi</dt><dd>315 515 9416</dd></div>
-          <div><dt data-i18n="f2.pay.amount">Valor de la formación</dt><dd data-cfg-lang="course.price">Te lo confirmamos por WhatsApp</dd></div>
+          <div><dt data-i18n="f2.pay.amount">Valor de la formación</dt><dd data-cfg-lang="course.price">$699.900 COP</dd></div>
+          <div class="f2-pay-deposit"><dt data-i18n="f2.pay.deposit">Reserva (50%) · paga por QR</dt><dd data-cfg-lang="course.deposit">$349.950 COP</dd></div>
         </dl>
         <ol class="f2-pay-steps">
-          <li data-i18n="f2.pay.s1">Escanea el QR o transfiere a la llave.</li>
+          <li data-i18n="f2.pay.s1">Escanea el QR o transfiere $349.950 a la llave.</li>
           <li data-i18n="f2.pay.s2">Guarda el comprobante de pago.</li>
           <li data-i18n="f2.pay.s3">Adjúntalo en el formulario o envíalo por WhatsApp.</li>
         </ol>

@@ -185,6 +185,7 @@
       const en = lang === "en";
       const text = (en ? "Hi Sebastián, my name is " : "Hola Sebastián, mi nombre es ") + name + ". " +
         (en ? "I'm interested in: " : "Me interesa: ") + service + "." + (msg ? (en ? " My case: " : " Mi caso: ") + msg : "");
+      if (window.srmTrack) window.srmTrack("whatsapp", { event_label: "formulario-contacto" });
       window.open(waUrl(text), "_blank", "noopener");
     });
   }
@@ -206,12 +207,48 @@
     window.addEventListener("scroll", () => { const y = window.scrollY; if (y < 800) img.style.transform = "scale(1.08) translateY(" + y * 0.08 + "px)"; }, { passive: true });
   }
 
+  /* ---------------- Medición: Google Ads / GA4 / Meta Pixel ---------------- */
+  // Las etiquetas solo se cargan si hay un ID en config.js. Expone window.srmTrack(evento) para los formularios.
+  function initTracking() {
+    const T = CFG.tracking || {}; const ids = [T.googleTagId, T.ga4Id].filter(Boolean);
+    if (ids.length) {
+      const sc = document.createElement("script"); sc.async = true; sc.src = "https://www.googletagmanager.com/gtag/js?id=" + ids[0]; document.head.appendChild(sc);
+      window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date()); ids.forEach(id => window.gtag("config", id));
+    }
+    if (T.metaPixelId) {
+      /* Código oficial del píxel de Meta */
+      !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      window.fbq("init", T.metaPixelId); window.fbq("track", "PageView");
+    }
+    const conv = T.conversions || {};
+    // Registra una conversión en todas las plataformas configuradas
+    window.srmTrack = function (evento, extra) {
+      const label = conv[evento];
+      if (window.gtag) {
+        if (T.googleTagId && label) window.gtag("event", "conversion", Object.assign({ send_to: T.googleTagId + "/" + label }, extra || {}));
+        window.gtag("event", evento, extra || {});
+      }
+      if (window.fbq) {
+        const meta = { whatsapp: "Contact", llamada: "Contact", curso: "Lead" }[evento] || "Lead";
+        window.fbq("track", meta, extra || {});
+      }
+    };
+    // Clics en WhatsApp y teléfono (botones, enlaces y formulario de contacto)
+    document.addEventListener("click", e => {
+      const a = e.target.closest("a"); if (!a) return;
+      const h = a.getAttribute("href") || "";
+      if (a.hasAttribute("data-wa") || /wa\.me|api\.whatsapp\.com/.test(h)) window.srmTrack("whatsapp", { event_label: a.getAttribute("data-wa") || h });
+      else if (/^tel:/.test(h)) window.srmTrack("llamada", { event_label: h });
+    }, true);
+  }
+
   /* ---------------- Inicio ---------------- */
   document.addEventListener("DOMContentLoaded", () => {
     cacheOriginals();
     applyConfig();
     applyLang();
     $$(".lang-toggle button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
-    initHeader(); initReveal(); initCounters(); initCarousel(); initAccordion(); initForm(); initVideo(); initParallax();
+    initTracking(); initHeader(); initReveal(); initCounters(); initCarousel(); initAccordion(); initForm(); initVideo(); initParallax();
   });
 })();

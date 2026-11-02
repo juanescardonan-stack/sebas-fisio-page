@@ -29,6 +29,8 @@
     const price = CFG.course && CFG.course.price;
     const priceEl = $("[data-cfg-lang='course.price']");
     if (priceEl && !(price && (price[l] || price.es))) priceEl.textContent = l === "en" ? "We'll confirm it by WhatsApp" : "Te lo confirmamos por WhatsApp";
+    const dep = CFG.course && CFG.course.deposit; const depEl = $("[data-cfg-lang='course.deposit']");
+    if (depEl && dep && (dep[l] || dep.es)) depEl.textContent = dep[l] || dep.es;
   }
   function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
 
@@ -77,6 +79,7 @@
     fb.scrollIntoView({ behavior: "smooth", block: "center" });
   }
   function mostrarExito() {
+    if (window.srmTrack) window.srmTrack("curso", { event_label: "formulario-fisio20", value: 699900, currency: "COP" });
     const ok = $("#formOk"); if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
     form.reset(); form.classList.remove("was-validated"); toggleOtra();
   }

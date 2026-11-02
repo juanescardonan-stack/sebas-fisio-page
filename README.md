@@ -14,6 +14,7 @@ Sitio estático (HTML + CSS + JavaScript puro, sin dependencias ni proceso de bu
 ├── js/columna3d.js     Columna vertebral 3D de fondo en el hero (Three.js desde CDN; sin WebGL simplemente no aparece)
 ├── js/cursos.js        Página de formación: tarjetas de próximas fechas (desde config.js) y envío del formulario
 ├── backend/formulario-apps-script.gs   Receptor del formulario para publicar en Google Apps Script (opcional, recomendado)
+├── marketing/plan-ads.md   Plan de pauta Google Ads + Meta Ads (palabras clave, anuncios, segmentación, presupuesto)
 └── assets/
     ├── img/            Fotos optimizadas para web
     ├── video/          Video de recuperación muscular (comprimido, 5 MB) + poster
@@ -38,6 +39,7 @@ Abre `js/config.js`. WhatsApp, dirección e Instagram ya están configurados; lo
 | `course.upcoming` | Tarjetas "Próximas formaciones" de `cursos.html`: lista de `{ city, date }` (agrega o quita ciudades) |
 | `course.price` | Valor de la reserva que se muestra junto al QR (vacío = "Te lo confirmamos por WhatsApp") |
 | `course.seats` | Cupos por formación (se muestra en el botón "Reservar mi cupo") |
+| `tracking` | IDs de Google Ads (`googleTagId` + etiquetas de `conversions`), GA4 y píxel de Meta. Vacíos = no se carga nada. El sitio registra solo las conversiones: clic en WhatsApp, clic en teléfono y formulario FISIO 2.0 enviado (ver `marketing/plan-ads.md` §0) |
 
 Todos los botones de WhatsApp del sitio abren un chat con un mensaje precargado según el servicio.
 

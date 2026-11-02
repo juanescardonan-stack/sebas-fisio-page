@@ -37,12 +37,27 @@ window.SITE_CONFIG = {
   formEmail: "destinyrehabilitacion@gmail.com",
   formEndpoint: "https://script.google.com/macros/s/AKfycbz6Bdg6zGUAn2rGbNjY0PL40dal1BWqtnn3t9-BmilNNoDzMPZ2MbexjE3xEwwaH2spVw/exec",  // Apps Script publicado (ver README §3)
 
+  // Publicidad y medición (Google Ads / Meta Ads). Deja "" en lo que no uses; nada se carga si está vacío.
+  tracking: {
+    googleTagId: "",            // <-- CAMBIAR: ID de Google Ads, ej. "AW-123456789" (Google Ads → Herramientas → Conversiones → Etiqueta de Google)
+    ga4Id: "",                  // opcional: ID de Google Analytics 4, ej. "G-XXXXXXXXXX"
+    // Etiquetas de conversión de Google Ads (la parte después de la barra en "AW-123456789/AbCdEfGh")
+    conversions: {
+      whatsapp: "",             // <-- CAMBIAR: conversión "Contacto por WhatsApp" (clic en cualquier botón de WhatsApp)
+      llamada:  "",             // opcional: conversión "Llamada" (clic en un número de teléfono)
+      curso:    ""              // <-- CAMBIAR: conversión "Inscripción FISIO 2.0" (formulario enviado con éxito)
+    },
+    metaPixelId: ""             // <-- CAMBIAR: ID del píxel de Meta, ej. "1234567890123456" (Meta Business → Orígenes de datos)
+  },
+
   // Próxima fecha del curso FISIO 2.0
   course: {
     dates: { es: "10 y 11 de abril de 2027", en: "April 10–11, 2027" },
     city:  { es: "Medellín", en: "Medellín" },
     // Valor de la reserva / inversión que se muestra junto al QR (deja "" para mostrar "Te lo confirmamos por WhatsApp")
     price: { es: "$699.900 COP", en: "$699,900 COP" },
+    // Valor de la reserva (50%) que se paga por QR para asegurar el cupo
+    deposit: { es: "$349.950 COP", en: "$349,950 COP" },
     // Tarjetas "PRÓXIMAS FORMACIONES" de la página de cursos: agrega o quita ciudades y fechas
     upcoming: [                                                                      // <-- CAMBIAR
       { city: "Medellín", date: { es: "10 y 11 de abril de 2027", en: "April 10–11, 2027" } }

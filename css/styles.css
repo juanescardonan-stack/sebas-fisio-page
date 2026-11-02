@@ -619,6 +619,9 @@ a.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 .f2-pay-data div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
 .f2-pay-data dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
 .f2-pay-data dd { margin: 0; font-weight: 700; color: var(--primary-deep); text-align: right; }
+.f2-pay-deposit { background: rgba(242,107,33,.1); border-radius: 10px; padding: 8px 10px !important; border-bottom: 0 !important; }
+.f2-pay-deposit dt { color: var(--f2-orange-dk); }
+.f2-pay-deposit dd { color: var(--f2-orange-dk); font-size: 1.15rem; }
 .f2-pay-steps { margin: 0 0 18px; padding-left: 20px; color: var(--ink); font-size: .92rem; display: grid; gap: 4px; }
 .f2-pay .btn { width: 100%; white-space: normal; text-align: center; }
 .f2-form-grid > *, .f2-split > *, .f2-hero-grid > * { min-width: 0; }
