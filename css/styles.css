@@ -573,6 +573,8 @@ a.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 .f2-next-city { border: 1px solid var(--f2-line); border-radius: 12px; padding: 14px 16px; text-align: center; }
 .f2-next-city strong { display: block; font-family: var(--font-head); color: #fff; font-size: 1.1rem; }
 .f2-next-city span { color: var(--f2-cyan); font-weight: 600; font-size: .92rem; }
+.f2-next-price { border-color: var(--f2-orange); background: rgba(242,107,33,.08); }
+.f2-next-price strong { color: var(--f2-orange); }
 .f2-next-actions { grid-column: 1 / -1; border-top: 1px solid var(--f2-line); padding: 14px 8px 6px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
 /* Formulario + pago */

@@ -399,7 +399,7 @@ window.I18N = {
     "f2.pay.lead": "Scan the code from your bank app or Nequi (Bre-B) to pay your reservation.",
     "f2.pay.holder": "Account holder",
     "f2.pay.key": "Bre-B key · Nequi",
-    "f2.pay.amount": "Amount",
+    "f2.pay.amount": "Training fee",
     "f2.pay.s1": "Scan the QR or transfer to the key.",
     "f2.pay.s2": "Save the payment receipt.",
     "f2.pay.s3": "Attach it in the form or send it by WhatsApp.",

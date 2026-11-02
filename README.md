@@ -41,22 +41,12 @@ Abre `js/config.js`. WhatsApp, dirección e Instagram ya están configurados; lo
 
 Todos los botones de WhatsApp del sitio abren un chat con un mensaje precargado según el servicio.
 
-## 2. Publicar en GitHub Pages
+## 2. Publicación (ya hecha)
 
-1. Crea un repositorio en GitHub (por ejemplo `fisio-sebastian-rengifo`).
-2. Sube **todo el contenido de esta carpeta** a la raíz del repositorio (índice en `index.html`).
-   ```bash
-   git init
-   git add .
-   git commit -m "Sitio web Sebastián Rengifo Fisioterapia"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/fisio-sebastian-rengifo.git
-   git push -u origin main
-   ```
-3. En el repositorio: **Settings → Pages → Build and deployment → Source: "Deploy from a branch"**, rama `main`, carpeta `/ (root)` → **Save**.
-4. En 1–2 minutos el sitio queda en `https://TU_USUARIO.github.io/fisio-sebastian-rengifo/`.
-
-Para usar un dominio propio después, agrega el dominio en **Settings → Pages → Custom domain** y configura el DNS según indique GitHub.
+- **Sitio en producción:** https://www.fisiosebastianrengifo.com (GitHub Pages, repositorio `juanescardonan-stack/sebas-fisio-page`, rama `master`).
+- **Dominio:** fisiosebastianrengifo.com comprado en GoDaddy. DNS: 4 registros A en `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) y CNAME `www` → `juanescardonan-stack.github.io`. En GitHub: Settings → Pages → Custom domain `www.fisiosebastianrengifo.com` + Enforce HTTPS. El archivo `CNAME` del repo guarda ese dominio: no lo borres.
+- **Para publicar cambios:** `git add .` → `git commit -m "mensaje"` → `git push origin master`. En 1–2 minutos quedan en línea.
+- Renovación del dominio: anual en GoDaddy (conviene dejar la renovación automática activa para no perderlo).
 
 ## 3. Formulario de reserva (cursos.html) → correo
 

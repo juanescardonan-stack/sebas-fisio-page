@@ -39,13 +39,13 @@ window.SITE_CONFIG = {
 
   // Próxima fecha del curso FISIO 2.0
   course: {
-    dates: { es: "Próximas fechas por confirmar", en: "Next dates to be confirmed" }, // <-- CAMBIAR
+    dates: { es: "10 y 11 de abril de 2027", en: "April 10–11, 2027" },
     city:  { es: "Medellín", en: "Medellín" },
     // Valor de la reserva / inversión que se muestra junto al QR (deja "" para mostrar "Te lo confirmamos por WhatsApp")
-    price: { es: "", en: "" },                                                       // <-- CAMBIAR (ej: "$850.000 COP")
+    price: { es: "$699.900 COP", en: "$699,900 COP" },
     // Tarjetas "PRÓXIMAS FORMACIONES" de la página de cursos: agrega o quita ciudades y fechas
     upcoming: [                                                                      // <-- CAMBIAR
-      { city: "Medellín", date: { es: "Fecha por confirmar", en: "Date to be confirmed" } }
+      { city: "Medellín", date: { es: "10 y 11 de abril de 2027", en: "April 10–11, 2027" } }
     ],
     seats: 25
   }

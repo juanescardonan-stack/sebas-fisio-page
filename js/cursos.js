@@ -20,6 +20,9 @@
       const date = typeof item.date === "object" ? (item.date[l] || item.date.es || "") : (item.date || "");
       return '<div class="f2-next-city"><strong>' + esc(item.city || "") + "</strong><span>" + esc(date) + "</span></div>";
     }).join("") || '<div class="f2-next-city"><strong>' + (l === "en" ? "City and date" : "Ciudad y fecha") + "</strong><span>" + (l === "en" ? "To be confirmed" : "Por confirmar") + "</span></div>";
+    // Tarjeta con el valor de la formación (si está configurado)
+    const precio = CFG.course && CFG.course.price && (CFG.course.price[l] || CFG.course.price.es);
+    if (precio) box.innerHTML += '<div class="f2-next-city f2-next-price"><strong>' + esc(precio) + "</strong><span>" + (l === "en" ? "Training fee" : "Valor de la formación") + "</span></div>";
     const seats = CFG.course && CFG.course.seats;
     if (seats) $$("[data-i18n-html='f2.next.cta1'] small").forEach(el => { el.textContent = "(" + seats + (l === "en" ? " spots)" : " cupos)"); });
     // Valor junto al QR: si no está configurado, texto por defecto
