@@ -43,14 +43,7 @@
     try { history.replaceState(null, "", location.pathname + "#formulario"); } catch (e) { /* nada */ }
   }
 
-  // Campo "¿Cuál ciudad?" solo si eligen "Otra"
-  const ciudad = $("#fCiudad"), otra = $("#fieldOtraCiudad"), otraInput = $("#fOtraCiudad");
-  function toggleOtra() {
-    const show = ciudad && ciudad.value === "Otra";
-    if (otra) otra.hidden = !show;
-    if (otraInput) otraInput.required = !!show;
-  }
-  if (ciudad) { ciudad.addEventListener("change", toggleOtra); toggleOtra(); }
+  function toggleOtra() { /* la formación es solo en Medellín: campo fijo */ }
 
   /* ---- Envío ---- */
   const t = k => { const d = (window.I18N && window.I18N.en) || {}; return lang() === "en" && d[k] ? d[k] : null; };
@@ -144,9 +137,20 @@
   }
 
   // Se ejecuta después de main.js (que aplica idioma y configuración al cargar)
+  function initSticky() {
+    const bar = $("#ctaSticky"), hero = $(".f2-hero"), formSec = $("#formulario"); if (!bar || !hero || !formSec) return;
+    const update = () => {
+      const pasadoHero = window.scrollY > hero.offsetHeight * 0.6;
+      const enForm = formSec.getBoundingClientRect().top < window.innerHeight * 0.7;
+      bar.classList.toggle("show", pasadoHero && !enForm);
+    };
+    window.addEventListener("scroll", update, { passive: true }); update();
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     renderUpcoming();
     initEnrollForm();
+    initSticky();
     // Se vuelve a pintar cuando cambia el idioma (el toggle actualiza <html lang>)
     new MutationObserver(renderUpcoming).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
   });

@@ -45,8 +45,7 @@ window.SITE_CONFIG = {
     price: { es: "", en: "" },                                                       // <-- CAMBIAR (ej: "$850.000 COP")
     // Tarjetas "PRÓXIMAS FORMACIONES" de la página de cursos: agrega o quita ciudades y fechas
     upcoming: [                                                                      // <-- CAMBIAR
-      { city: "Medellín", date: { es: "Fecha por confirmar", en: "Date to be confirmed" } },
-      { city: "Bogotá",   date: { es: "Fecha por confirmar", en: "Date to be confirmed" } }
+      { city: "Medellín", date: { es: "Fecha por confirmar", en: "Date to be confirmed" } }
     ],
     seats: 25
   }
