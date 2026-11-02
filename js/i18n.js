@@ -359,7 +359,7 @@ window.I18N = {
     "f2.next.title": "UPCOMING TRAININGS",
     "f2.next.cta1": "RESERVE MY SPOT <small>(25 spots)</small>",
     "f2.next.cta2": "Fill in the form with your email and city",
-    "f2.form.title": "RESERVE YOUR SPOT <span>WITH 50%</span>",
+    "f2.form.title": "RESERVE YOUR SPOT<br><span>WITH 50%</span>",
     "f2.form.lead": "Leave us your details. To secure your spot, reserve with 50% of the training fee by QR payment and attach the receipt.",
     "f2.form.okTitle": "We received your information!",
     "f2.form.okText": "We'll contact you by WhatsApp or email to confirm your spot and the training details.",
