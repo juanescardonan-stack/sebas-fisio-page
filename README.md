@@ -39,7 +39,7 @@ Abre `js/config.js`. WhatsApp, dirección e Instagram ya están configurados; lo
 | `course.upcoming` | Tarjetas "Próximas formaciones" de `cursos.html`: lista de `{ city, date }` (agrega o quita ciudades) |
 | `course.price` | Valor de la reserva que se muestra junto al QR (vacío = "Te lo confirmamos por WhatsApp") |
 | `course.seats` | Cupos por formación (se muestra en el botón "Reservar mi cupo") |
-| `tracking` | IDs de Google Ads (`googleTagId` + etiquetas de `conversions`), GA4 y píxel de Meta. Vacíos = no se carga nada. El sitio registra solo las conversiones: clic en WhatsApp, clic en teléfono y formulario FISIO 2.0 enviado (ver `marketing/plan-ads.md` §0) |
+| `tracking` | `gtmId` (Google Tag Manager, ya configurado GTM-TB24TX26), IDs de Google Ads (`googleTagId` + etiquetas de `conversions`), GA4 y píxel de Meta. Vacíos = no se carga nada. El sitio registra solo las conversiones: clic en WhatsApp, clic en teléfono y formulario FISIO 2.0 enviado (ver `marketing/plan-ads.md` §0) |
 
 Todos los botones de WhatsApp del sitio abren un chat con un mensaje precargado según el servicio.
 

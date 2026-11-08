@@ -211,10 +211,17 @@
   // Las etiquetas solo se cargan si hay un ID en config.js. Expone window.srmTrack(evento) para los formularios.
   function initTracking() {
     const T = CFG.tracking || {}; const ids = [T.googleTagId, T.ga4Id].filter(Boolean);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    if (T.gtmId) {
+      /* Etiqueta de Google entregada por Google Ads (formato GTM-…): mismo código que da Google */
+      const g = document.createElement("script"); g.async = true; g.src = "https://www.googletagmanager.com/gtm.js?id=" + T.gtmId; document.head.appendChild(g);
+      window.gtag("js", new Date());
+    }
     if (ids.length) {
       const sc = document.createElement("script"); sc.async = true; sc.src = "https://www.googletagmanager.com/gtag/js?id=" + ids[0]; document.head.appendChild(sc);
-      window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); };
-      window.gtag("js", new Date()); ids.forEach(id => window.gtag("config", id));
+      if (!T.gtmId) window.gtag("js", new Date());
+      ids.forEach(id => window.gtag("config", id));
     }
     if (T.metaPixelId) {
       /* Código oficial del píxel de Meta */
@@ -225,9 +232,11 @@
     // Registra una conversión en todas las plataformas configuradas
     window.srmTrack = function (evento, extra) {
       const label = conv[evento];
+      // Evento para Google Tag Manager (activador "Evento personalizado": whatsapp | llamada | curso)
+      window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
       if (window.gtag) {
         if (T.googleTagId && label) window.gtag("event", "conversion", Object.assign({ send_to: T.googleTagId + "/" + label }, extra || {}));
-        window.gtag("event", evento, extra || {});
+        else if (T.gtmId || ids.length) window.gtag("event", evento, extra || {});
       }
       if (window.fbq) {
         const meta = { whatsapp: "Contact", llamada: "Contact", curso: "Lead" }[evento] || "Lead";

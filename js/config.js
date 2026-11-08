@@ -39,7 +39,8 @@ window.SITE_CONFIG = {
 
   // Publicidad y medición (Google Ads / Meta Ads). Deja "" en lo que no uses; nada se carga si está vacío.
   tracking: {
-    googleTagId: "",            // <-- CAMBIAR: ID de Google Ads, ej. "AW-123456789" (Google Ads → Herramientas → Conversiones → Etiqueta de Google)
+    gtmId: "GTM-TB24TX26",      // Etiqueta de Google de la cuenta de Google Ads (la que Google muestra en "Instalar manualmente")
+    googleTagId: "",            // <-- CAMBIAR: ID de conversión de Google Ads, ej. "AW-123456789" (Conversiones → la conversión → Detalles de la etiqueta)
     ga4Id: "",                  // opcional: ID de Google Analytics 4, ej. "G-XXXXXXXXXX"
     // Etiquetas de conversión de Google Ads (la parte después de la barra en "AW-123456789/AbCdEfGh")
     conversions: {
