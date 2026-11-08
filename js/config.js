@@ -40,13 +40,13 @@ window.SITE_CONFIG = {
   // Publicidad y medición (Google Ads / Meta Ads). Deja "" en lo que no uses; nada se carga si está vacío.
   tracking: {
     gtmId: "GTM-TB24TX26",      // Etiqueta de Google de la cuenta de Google Ads (la que Google muestra en "Instalar manualmente")
-    googleTagId: "",            // <-- CAMBIAR: ID de conversión de Google Ads, ej. "AW-123456789" (Conversiones → la conversión → Detalles de la etiqueta)
+    googleTagId: "AW-18563882286", // ID de conversión de Google Ads (Objetivos → Conversiones → Ver fragmento de evento)
     ga4Id: "",                  // opcional: ID de Google Analytics 4, ej. "G-XXXXXXXXXX"
     // Etiquetas de conversión de Google Ads (la parte después de la barra en "AW-123456789/AbCdEfGh")
     conversions: {
-      whatsapp: "",             // <-- CAMBIAR: conversión "Contacto por WhatsApp" (clic en cualquier botón de WhatsApp)
-      llamada:  "",             // opcional: conversión "Llamada" (clic en un número de teléfono)
-      curso:    ""              // <-- CAMBIAR: conversión "Inscripción FISIO 2.0" (formulario enviado con éxito)
+      whatsapp: "ybcpCIqlz7QdEK66-ZNF", // conversión "Whatsapp" (clic en cualquier botón de WhatsApp)
+      llamada:  "-f37CI2lz7QdEK66-ZNF", // conversión "Llamada" (clic en un número de teléfono)
+      curso:    "Oun7CJClz7QdEK66-ZNF"  // conversión "Formulario fisio 2.0" (formulario enviado con éxito)
     },
     metaPixelId: ""             // <-- CAMBIAR: ID del píxel de Meta, ej. "1234567890123456" (Meta Business → Orígenes de datos)
   },
